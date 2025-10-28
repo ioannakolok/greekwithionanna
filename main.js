@@ -39,6 +39,48 @@ function initializeNavigation() {
             mobileMenu.classList.toggle('hidden');
         });
     }
+
+    // Ensure language toggle exists. If the translations script hasn't added it yet,
+    // call the language manager to create the toggle manually. This prevents
+    // missing toggles on pages where the dynamic insertion fails.
+    if (typeof window !== 'undefined' && window.languageManager) {
+        // Only add a new toggle if one is not already present
+        if (!document.getElementById('language-toggle')) {
+            window.languageManager.createLanguageToggle();
+        }
+    }
+
+    // Toggle desktop dropdown menus on click instead of relying solely on hover.
+    // This ensures submenus stay open long enough for users to click items.
+    const navParents = document.querySelectorAll('nav .relative.group');
+    navParents.forEach(parent => {
+        const button = parent.querySelector('button');
+        const dropdown = parent.querySelector('.absolute');
+        if (button && dropdown) {
+            button.addEventListener('click', function(e) {
+                // Prevent default link behaviour and stop propagation to avoid unwanted navigation
+                e.preventDefault();
+                e.stopPropagation();
+                // Hide other dropdowns before toggling this one
+                navParents.forEach(otherParent => {
+                    if (otherParent !== parent) {
+                        const otherDropdown = otherParent.querySelector('.absolute');
+                        if (otherDropdown) otherDropdown.classList.add('hidden');
+                    }
+                });
+                dropdown.classList.toggle('hidden');
+            });
+        }
+    });
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        navParents.forEach(parent => {
+            if (!parent.contains(e.target)) {
+                const dropdown = parent.querySelector('.absolute');
+                if (dropdown) dropdown.classList.add('hidden');
+            }
+        });
+    });
 }
 
 // Hero section animations

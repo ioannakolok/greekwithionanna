@@ -31,6 +31,39 @@
         }
     };
     </script>
+
+    <!-- Styles specifically for testimonials marquee used in this page -->
+    <style>
+        /* Marquee animation for testimonials */
+        .animate-marquee {
+            display: flex;
+            animation: marquee 40s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Floating icons for testimonial decoration */
+        .floating-elements .floating-icon {
+            position: absolute;
+            animation: reviewfloat 6s ease-in-out infinite;
+        }
+        @keyframes reviewfloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Hover effect for testimonial cards */
+        .review-card {
+            /* Ensure review cards are wide enough to hold multi‑sentence testimonials */
+            transition: transform 0.3s ease;
+            width: 40rem;
+        }
+        .review-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
 </head>
 <body class="font-body text-gray-800 bg-santorini-white">
     <!-- Navigation -->
@@ -40,15 +73,52 @@
                 <div class="flex items-center">
                     <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
-                        <a href="courses.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2" data-translate="nav-courses">Courses</a>
-                        <a href="about.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-about">About</a>
-                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2" data-translate="nav-home">Home</a>
+                    <!-- Courses dropdown (active on this page) -->
+                    <div class="relative group">
+                        <button class="flex items-center text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2" data-translate="nav-courses">Courses
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden group-hover:block group-focus-within:block">
+                            <!-- Use existing translation keys for navigation names -->
+                            <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:bg-gray-100" data-translate="nav-available">Available Courses</a>
+                            <a href="science.html" class="block px-4 py-2 text-marble-gray hover:bg-gray-100" data-translate="nav-science">Science-based Learning</a>
+                        </div>
                     </div>
+                    <!-- Greek Culture dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center text-marble-gray hover:text-aegean-blue px-1 py-2" data-translate="nav-culture">Greek Culture
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden group-hover:block group-focus-within:block">
+                            <div class="relative group">
+                                <button class="flex justify-between items-center w-full px-4 py-2 text-marble-gray hover:bg-gray-100" data-translate="nav-modern">Modern Greek Culture
+                                    <svg class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+                                </button>
+                                <div class="absolute left-full top-0 mt-0 ml-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden group-hover:block group-focus-within:block">
+                                    <!-- Link to the existing pages instead of non-existent modern-traditions/cuisine -->
+                                    <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:bg-gray-100" data-translate="nav-traditions">Traditions</a>
+                                    <a href="cuisines.html" class="block px-4 py-2 text-marble-gray hover:bg-gray-100" data-translate="nav-cuisines">Greek Cuisine</a>
+                                </div>
+                            </div>
+                            <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:bg-gray-100" data-translate="nav-ancient">Ancient Greek Culture</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+                    <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                    <select id="language-select" class="ml-4 border border-gray-300 rounded px-2 py-1 text-sm">
+                        <option value="en">EN</option>
+                        <option value="de">DE</option>
+                    </select>
                 </div>
-                <div class="md:hidden">
+                <!-- Mobile navigation toggle and language selector -->
+                <div class="md:hidden flex items-center">
+                    <select id="language-select" class="mr-2 border border-gray-300 rounded px-2 py-1 text-sm">
+                        <option value="en">EN</option>
+                        <option value="de">DE</option>
+                    </select>
                     <button id="mobile-menu-btn" class="text-marble-gray hover:text-aegean-blue">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -57,12 +127,17 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
+        <!-- Mobile menu for smaller screens -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
-                <a href="courses.html" class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-courses">Courses</a>
-                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">About</a>
+                <!-- Mobile menu: use existing translation keys -->
+                <a href="courses.html" class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                <a href="traditions.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">Meet Ioanna</a>
                 <a href="contact.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-contact">Book Lesson</a>
             </div>
         </div>
@@ -203,58 +278,101 @@
                     Join hundreds of students who have achieved their Greek learning goals with Ioanna's guidance.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/teacher-ioanna.jpg" alt="Student Sarah" class="w-12 h-12 rounded-full object-cover mr-4">
-                        <div>
-                            <h4 class="font-semibold text-aegean-blue">Sarah M.</h4>
-                            <p class="text-sm text-marble-gray">From Germany</p>
-                        </div>
-                    </div>
-                    <p class="text-marble-gray mb-4 leading-relaxed">
-                        "Ioanna's method made learning Greek feel natural and enjoyable. I went from knowing zero Greek to having confident conversations in just 8 months!"
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-marble-gray">Started: A0 → Now: B1</span>
-                        <div class="flex text-olive-gold">
-                            ★★★★★
-                        </div>
-                    </div>
+            <!-- Animated testimonials marquee reused from About page -->
+            <div class="relative overflow-hidden">
+                <!-- Floating icons for decoration -->
+                <div class="floating-elements absolute inset-0 pointer-events-none">
+                    <img src="images/baklava.jpg" alt="Baklava" class="floating-icon w-12 h-12 opacity-20" style="top:10%; left:5%;">
+                    <img src="images/tzatziki.jpg" alt="Tzatziki" class="floating-icon w-14 h-14 opacity-20" style="top:40%; left:80%;">
+                    <img src="images/parthenon.jpg" alt="Parthenon" class="floating-icon w-16 h-16 opacity-20" style="top:70%; left:20%;">
+                    <img src="images/moussaka_small.jpg" alt="Moussaka" class="floating-icon w-10 h-10 opacity-20" style="top:30%; left:50%;">
                 </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/teacher-ioanna.jpg" alt="Student Michael" class="w-12 h-12 rounded-full object-cover mr-4">
+                <!-- Marquee container with review cards -->
+                <div class="animate-marquee whitespace-nowrap flex items-stretch">
+                    <!-- One sequence of testimonial cards -->
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-semibold text-aegean-blue">Michael R.</h4>
-                            <p class="text-sm text-marble-gray">From USA</p>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-max"></p>
                         </div>
                     </div>
-                    <p class="text-marble-gray mb-4 leading-relaxed">
-                        "The cultural immersion approach really worked for me. I not only learned the language but also fell in love with Greek culture and traditions."
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-marble-gray">Started: A1 → Now: B2</span>
-                        <div class="flex text-olive-gold">
-                            ★★★★★
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/teacher-ioanna.jpg" alt="Student Elena" class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-semibold text-aegean-blue">Elena P.</h4>
-                            <p class="text-sm text-marble-gray">From Italy</p>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-beate"></p>
                         </div>
                     </div>
-                    <p class="text-marble-gray mb-4 leading-relaxed">
-                        "Ioanna's lessons are well-structured and engaging. I was able to reach an advanced level while also appreciating the beauty of the Greek language."
-                    </p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-marble-gray">Started: B1 → Now: C1</span>
-                        <div class="flex text-olive-gold">
-                            ★★★★★
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-paulina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-nikolai"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-martina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-jochen"></p>
+                        </div>
+                    </div>
+                    <!-- Duplicate sequence for continuous scrolling -->
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-max"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-beate"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-paulina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-nikolai"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-martina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-jochen"></p>
                         </div>
                     </div>
                 </div>
@@ -284,7 +402,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <p class="text-sm text-gray-300">Email: <a href="mailto:ioannakolok@gmail.com" class="text-olive-gold underline">ioannakolok@gmail.com</a></p>
+                    <p class="text-sm text-gray-300">Email: <a href="mailto:contact@learngreek.eu" class="text-olive-gold underline">contact@learngreek.eu</a></p>
                     <p class="text-sm text-gray-300">Timezone: Europe/Berlin</p>
                     <p class="text-sm text-gray-300">Free 15 min consultation available</p>
                 </div>

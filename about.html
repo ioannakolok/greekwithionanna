@@ -69,6 +69,36 @@
         .testimonial-card:hover {
             transform: scale(1.02);
         }
+
+        /* Marquee animation for testimonials */
+        .animate-marquee {
+            display: flex;
+            animation: marquee 40s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Floating icons inside testimonial area */
+        .floating-elements .floating-icon {
+            position: absolute;
+            animation: reviewfloat 6s ease-in-out infinite;
+        }
+        @keyframes reviewfloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Hover effect for review cards */
+        .review-card {
+            /* Ensure review cards are wide enough to hold multi‑sentence testimonials */
+            transition: transform 0.3s ease;
+            width: 40rem;
+        }
+        .review-card:hover {
+            transform: scale(1.02);
+        }
         
         .floating-badge {
             animation: float 3s ease-in-out infinite;
@@ -90,10 +120,58 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" data-translate="nav-home" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2">Home</a>
-                        <a href="courses.html" data-translate="nav-courses" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2">Courses</a>
-                        <a href="about.html" data-translate="nav-about" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2">About</a>
-                        <a href="contact.html" data-translate="nav-contact" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">Book Lesson</a>
+                        <!-- Home -->
+                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
+
+                        <!-- Courses dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-courses">Courses</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                                <a href="science.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                            </div>
+                        </div>
+
+                        <!-- Greek culture dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-culture">Greek Culture</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <!-- Modern Greek Culture nested dropdown -->
+                                <div class="relative group">
+                                    <button class="flex w-full justify-between items-center px-4 py-2 text-marble-gray hover:text-aegean-blue focus:outline-none">
+                                        <span data-translate="nav-modern" class="whitespace-nowrap">Modern Greek Culture</span>
+                                        <svg class="ml-2 w-4 h-4 transform rotate-0 group-hover:rotate-90 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M7.21 5.23a.75.75 0 01.02 1.06L4.563 10l2.667 3.71a.75.75 0 01-1.1 1.02l-3.667-4a.75.75 0 010-1.02l3.667-4a.75.75 0 011.06-.02z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="absolute left-full top-0 ml-1 mt-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                        <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                                        <a href="cuisines.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                                    </div>
+                                </div>
+                                <!-- Ancient Greek Culture link -->
+                                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                            </div>
+                        </div>
+
+                        <!-- Gallery -->
+                        <a href="gallery.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-gallery">Gallery</a>
+
+                        <!-- Meet Ioanna (active) -->
+                        <a href="about.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+
+                        <!-- Book Lesson -->
+                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -105,14 +183,32 @@
                 </div>
             </div>
         </div>
-        
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
             <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Home -->
                 <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
-                <a href="courses.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-courses">Courses</a>
-                <a href="about.html" class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-about">About</a>
-                <a href="contact.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-contact">Book Lesson</a>
+
+                <!-- Courses and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-courses">Courses</span>
+                <a href="courses.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+
+                <!-- Greek culture and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-culture">Greek Culture</span>
+                <span class="block px-4 py-2 text-marble-gray font-medium whitespace-nowrap" data-translate="nav-modern">Modern Greek Culture</span>
+                <a href="traditions.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+
+                <!-- Gallery -->
+                <a href="gallery.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-gallery">Gallery</a>
+
+                <!-- Meet Ioanna (active) -->
+                <a href="about.html" class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-about">Meet Ioanna</a>
+
+                <!-- Book Lesson -->
+                <a href="contact.html" class="block px-3 py-2 bg-olive-gold text-white rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
             </div>
         </div>
     </nav>
@@ -122,8 +218,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="floating-badge inline-block bg-olive-gold text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
-                        Native Greek Speaker • 8+ Years Experience
+                    <!-- Floating badge with translation support -->
+                    <div class="floating-badge inline-block bg-olive-gold text-white px-4 py-2 rounded-full text-sm font-medium mb-6" data-translate="badge-native-experience">
+                        Native Greek Speaker • 4+ Years Experience
                     </div>
                     <h1 class="text-4xl md:text-6xl font-display font-bold text-aegean-blue mb-6 leading-tight" data-translate="about-title">
                         Meet Ioanna
@@ -131,9 +228,10 @@
                     <h2 class="text-2xl md:text-3xl font-display font-semibold text-marble-gray mb-6" data-translate="about-subtitle">
                         Your Greek Language Expert & Cultural Guide
                     </h2>
-                    <p class="text-lg text-marble-gray mb-8 leading-relaxed" data-translate="about-description">
-                        Born and raised in Athens, Ioanna brings authentic Greek culture and language expertise to students worldwide. With a Master's degree in Linguistics and certifications in language teaching, she has helped hundreds of students achieve their Greek learning goals.
-                    </p>
+                    <!-- Replace single bio paragraph with multiple translated paragraphs -->
+                    <p class="text-lg text-marble-gray mb-4 leading-relaxed" data-translate="about-bio-1"></p>
+                    <p class="text-lg text-marble-gray mb-4 leading-relaxed" data-translate="about-bio-2"></p>
+                    <p class="text-lg text-marble-gray mb-8 leading-relaxed" data-translate="about-bio-3"></p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="contact.html" class="bg-olive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-all transform hover:scale-105 text-center" data-translate="about-book-lesson">
                             Book a Lesson
@@ -145,7 +243,7 @@
                 </div>
                 <div class="relative">
                     <div class="relative z-10">
-                        <img src="resources/teacher-ioanna.jpg" alt="Ioanna - Greek Language Teacher" class="w-full max-w-md mx-auto rounded-2xl shadow-2xl">
+                        <img src="images/teacher_ioanna.png" alt="Ioanna - Greek Language Teacher" class="w-full max-w-md mx-auto rounded-2xl shadow-2xl">
                     </div>
                     <div class="absolute -top-4 -right-4 w-24 h-24 bg-olive-gold rounded-full opacity-20"></div>
                     <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-aegean-blue rounded-full opacity-10"></div>
@@ -153,6 +251,24 @@
             </div>
         </div>
     </section>
+
+    <!-- Certificate Modal for enlarging educational certificates -->
+    <div id="certificate-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black/75 z-50">
+        <div class="relative max-w-3xl max-h-screen">
+            <img id="modal-image" src="" alt="Certificate" class="rounded-lg shadow-2xl max-w-full max-h-full">
+            <button id="modal-close" class="absolute top-2 right-2 text-white text-3xl font-bold leading-none">&times;</button>
+        </div>
+    </div>
+    <!-- Ensure language toggle is added even if main.js is not loaded -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.languageManager) {
+            if (!document.getElementById('language-toggle')) {
+                window.languageManager.createLanguageToggle();
+            }
+        }
+    });
+    </script>
 
     <!-- Credentials & Experience -->
     <section class="py-16 bg-white">
@@ -173,7 +289,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">8+</h3>
+                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">4+</h3>
                     <p class="text-marble-gray font-medium">Years Teaching</p>
                 </div>
                 
@@ -183,7 +299,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">500+</h3>
+                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">38+</h3>
                     <p class="text-marble-gray font-medium">Students Taught</p>
                 </div>
                 
@@ -193,7 +309,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">25+</h3>
+                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">3+</h3>
                     <p class="text-marble-gray font-medium">Countries Reached</p>
                 </div>
                 
@@ -203,89 +319,42 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">95%</h3>
+                    <h3 class="text-2xl font-display font-bold text-aegean-blue mb-2">100%</h3>
                     <p class="text-marble-gray font-medium">Success Rate</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Language Skills -->
+    <!-- Language Expertise and Educational Background -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 <div>
                     <h2 class="text-3xl md:text-4xl font-display font-bold text-aegean-blue mb-6" data-translate="language-expertise">
                         Language Expertise
                     </h2>
-                    <p class="text-lg text-marble-gray mb-8 leading-relaxed" data-translate="language-description">
-                        Ioanna's multilingual background allows her to understand the challenges of learning Greek from different linguistic perspectives. She speaks fluent English, German, and Spanish, making her accessible to students from around the world.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-semibold text-aegean-blue">Greek (Native)</span>
-                                <span class="text-sm text-marble-gray">100%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="skill-bar bg-green-500 h-3 rounded-full" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-semibold text-aegean-blue">English</span>
-                                <span class="text-sm text-marble-gray">95%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="skill-bar bg-blue-500 h-3 rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-semibold text-aegean-blue">German</span>
-                                <span class="text-sm text-marble-gray">85%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="skill-bar bg-purple-500 h-3 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="font-semibold text-aegean-blue">Spanish</span>
-                                <span class="text-sm text-marble-gray">75%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="skill-bar bg-orange-500 h-3 rounded-full" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-lg text-marble-gray mb-8 leading-relaxed" data-translate="language-description"></p>
                 </div>
-                
                 <div class="bg-white rounded-2xl p-8 shadow-lg">
                     <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-6">
                         Educational Background
                     </h3>
+                    <!-- Degree certificate images -->
+                    <div class="flex flex-col sm:flex-row gap-6 mb-6">
+                        <img src="images/ioanna_bachelors.jpg" alt="Ioanna Bachelor Degree" class="w-32 h-auto rounded-lg shadow-md cursor-pointer zoomable-certificate">
+                        <img src="images/ioanna_masters.jpg" alt="Ioanna Masters Degree" class="w-32 h-auto rounded-lg shadow-md cursor-pointer zoomable-certificate">
+                    </div>
+                    <!-- Degree descriptions -->
                     <div class="space-y-6">
                         <div class="border-l-4 border-olive-gold pl-6">
-                            <h4 class="font-semibold text-aegean-blue">Master's in Linguistics</h4>
-                            <p class="text-marble-gray text-sm mb-2">National and Kapodistrian University of Athens</p>
-                            <p class="text-sm text-marble-gray">Specialized in Second Language Acquisition and Greek as a Foreign Language</p>
+                            <p class="text-marble-gray text-sm" data-translate="edu-degree1"></p>
                         </div>
-                        
                         <div class="border-l-4 border-aegean-blue pl-6">
-                            <h4 class="font-semibold text-aegean-blue">Teaching Certification</h4>
-                            <p class="text-marble-gray text-sm mb-2">Center for the Greek Language</p>
-                            <p class="text-sm text-marble-gray">Certified to teach Greek as a second/foreign language</p>
+                            <p class="text-marble-gray text-sm" data-translate="edu-degree2"></p>
                         </div>
-                        
                         <div class="border-l-4 border-green-500 pl-6">
-                            <h4 class="font-semibold text-aegean-blue">CELTA Certification</h4>
-                            <p class="text-marble-gray text-sm mb-2">Cambridge Assessment English</p>
-                            <p class="text-sm text-marble-gray">Certificate in Teaching English to Speakers of Other Languages</p>
+                            <p class="text-marble-gray text-sm" data-translate="edu-degree3"></p>
                         </div>
                     </div>
                 </div>
@@ -305,40 +374,61 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <!-- Updated methodology cards with four pillars of Ioanna's teaching philosophy -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Learn Naturally -->
                 <div class="methodology-card bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-gray-100 text-center">
                     <div class="w-20 h-20 bg-aegean-blue rounded-full flex items-center justify-center mx-auto mb-6">
+                        <!-- Academic cap icon -->
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m-6-3a6 6 0 0112 0"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-culture-title">Cultural Immersion</h3>
-                    <p class="text-marble-gray leading-relaxed">
-                        Learn Greek through authentic cultural experiences, stories, and traditions. Understand not just what to say, but why Greeks say it that way.
+                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-learn-natural-title">Learn Naturally – the Brain’s Way</h3>
+                    <p class="text-marble-gray leading-relaxed" data-translate="method-learn-natural-desc">
+                        I guide students to feel the language through patterns, repetition, and examples in real context. Step by step, the brain builds automaticity (as neuroscience confirms) through exposure, practice, and use.
                     </p>
                 </div>
-                
+
+                <!-- Active Learning -->
                 <div class="methodology-card bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border border-gray-100 text-center">
                     <div class="w-20 h-20 bg-olive-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <!-- Chat bubble icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v7a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-active-learning-title">Active Learning through Doing</h3>
+                    <p class="text-marble-gray leading-relaxed" data-translate="method-active-learning-desc">
+                        I speak little, ask much. Using the Socratic (μαιευτική) approach, I help students form answers, find rules through examples, and speak from day one. Learning happens through doing, guessing, and correcting.
+                    </p>
+                </div>
+
+                <!-- Personalized Learning -->
+                <div class="methodology-card bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <!-- User icon -->
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-personal-title">Personalized Approach</h3>
-                    <p class="text-marble-gray leading-relaxed">
-                        Every student is unique. Ioanna adapts her teaching style to match your learning preferences, goals, and cultural background.
+                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-personalized-title">Personalized Learning</h3>
+                    <p class="text-marble-gray leading-relaxed" data-translate="method-personalized-desc">
+                        Each student learns differently, so I adapt lessons to their pace, goals, and style. I observe what helps them learn best and adjust accordingly — making progress feel natural, personal, and enjoyable.
                     </p>
                 </div>
-                
-                <div class="methodology-card bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-gray-100 text-center">
-                    <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+
+                <!-- Motivation & Joy -->
+                <div class="methodology-card bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border border-gray-100 text-center">
+                    <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <!-- Happy face icon -->
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-results-title">Active Learning</h3>
-                    <p class="text-marble-gray leading-relaxed">
-                        Through interactive exercises, real conversations, and practical applications, you'll build confidence and fluency naturally.
+                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-4" data-translate="method-motivation-title">Motivation, Warmth, and Joy</h3>
+                    <p class="text-marble-gray leading-relaxed" data-translate="method-motivation-desc">
+                        Languages need effort. And we make that effort enjoyable together! With humor, encouragement, and empathy, I create a space where students feel safe to try, make mistakes, and grow. Progress is celebrated, curiosity is nurtured, and confidence blooms.
                     </p>
                 </div>
             </div>
@@ -350,28 +440,32 @@
                 </h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
                     <div class="text-center">
                         <div class="w-16 h-16 bg-aegean-blue rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">1</div>
-                        <h4 class="font-semibold text-aegean-blue mb-2">Assessment</h4>
-                        <p class="text-sm text-marble-gray">Comprehensive evaluation of your current level and learning goals</p>
+                        <h4 class="font-semibold text-aegean-blue mb-2" data-translate="journey-step1-title">Learn Naturally</h4>
+                        <p class="text-sm text-marble-gray" data-translate="journey-step1-desc">Feel the language through patterns, repetition, and real examples to build natural automaticity.</p>
                     </div>
-                    
+
+                    <!-- Step 2 -->
                     <div class="text-center">
                         <div class="w-16 h-16 bg-olive-gold rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">2</div>
-                        <h4 class="font-semibold text-aegean-blue mb-2">Personalization</h4>
-                        <p class="text-sm text-marble-gray">Custom learning plan tailored to your needs and interests</p>
+                        <h4 class="font-semibold text-aegean-blue mb-2" data-translate="journey-step2-title">Active Learning</h4>
+                        <p class="text-sm text-marble-gray" data-translate="journey-step2-desc">Speak from day one using the Socratic method. Guess, do, and correct in interactive dialogues.</p>
                     </div>
-                    
+
+                    <!-- Step 3 -->
                     <div class="text-center">
                         <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">3</div>
-                        <h4 class="font-semibold text-aegean-blue mb-2">Immersion</h4>
-                        <p class="text-sm text-marble-gray">Interactive lessons with cultural context and practical application</p>
+                        <h4 class="font-semibold text-aegean-blue mb-2" data-translate="journey-step3-title">Personalized Path</h4>
+                        <p class="text-sm text-marble-gray" data-translate="journey-step3-desc">Lessons adapt to your pace, goals, and style for a custom learning experience.</p>
                     </div>
-                    
+
+                    <!-- Step 4 -->
                     <div class="text-center">
                         <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">4</div>
-                        <h4 class="font-semibold text-aegean-blue mb-2">Progress</h4>
-                        <p class="text-sm text-marble-gray">Regular feedback, adjustments, and celebration of achievements</p>
+                        <h4 class="font-semibold text-aegean-blue mb-2" data-translate="journey-step4-title">Motivation & Joy</h4>
+                        <p class="text-sm text-marble-gray" data-translate="journey-step4-desc">Celebrate progress, nurture curiosity, and grow confidence together with warmth and humor.</p>
                     </div>
                 </div>
             </div>
@@ -382,63 +476,120 @@
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-display font-bold text-aegean-blue mb-6">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-aegean-blue mb-6" data-translate="testimonials-title">
                     What Students Say About Ioanna
                 </h2>
-                <p class="text-lg text-marble-gray max-w-2xl mx-auto">
+                <p class="text-lg text-marble-gray max-w-2xl mx-auto" data-translate="testimonials-intro">
                     Don't just take our word for it. Here's what Ioanna's students have to say about their learning experience.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="https://kimi-web-img.moonshot.cn/img/images.rawpixel.com/2edeae6294fa696c5ff0652d3473c887a9ad93dd.jpg" alt="Student Sarah" class="w-12 h-12 rounded-full object-cover mr-4">
-                        <div>
-                            <h4 class="font-semibold text-aegean-blue">Sarah M.</h4>
-                            <p class="text-sm text-marble-gray">From Germany</p>
-                            <div class="flex text-olive-gold text-sm">★★★★★</div>
-                        </div>
-                    </div>
-                    <p class="text-marble-gray leading-relaxed mb-4">
-                        "Ioanna's teaching method is absolutely brilliant! She makes complex grammar concepts easy to understand and always incorporates fascinating cultural insights. In 8 months, I went from zero Greek to having confident conversations with locals during my trip to Crete."
-                    </p>
-                    <div class="text-sm text-marble-gray">
-                        <strong>Progress:</strong> A0 → B1 in 8 months
-                    </div>
+            <!-- Animated testimonials marquee with floating Greek icons for a premium UI feel -->
+            <div class="relative overflow-hidden">
+                <!-- Decorative floating icons -->
+                <div class="floating-elements absolute inset-0 pointer-events-none">
+                    <img src="images/baklava.jpg" alt="Baklava" class="floating-icon w-12 h-12 opacity-20" style="top:10%; left:5%;">
+                    <img src="images/tzatziki.jpg" alt="Tzatziki" class="floating-icon w-14 h-14 opacity-20" style="top:40%; left:80%;">
+                    <img src="images/parthenon.jpg" alt="Parthenon" class="floating-icon w-16 h-16 opacity-20" style="top:70%; left:20%;">
+                    <img src="images/moussaka_small.jpg" alt="Moussaka" class="floating-icon w-10 h-10 opacity-20" style="top:30%; left:50%;">
                 </div>
-
-                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="https://kimi-web-img.moonshot.cn/img/osoq.com/5682652f238bec14953fd8c6990be44f41f8f72b.jpg" alt="Student Michael" class="w-12 h-12 rounded-full object-cover mr-4">
+                <!-- Marquee container -->
+                <div class="animate-marquee whitespace-nowrap flex items-stretch">
+                    <!-- Repeat testimonial cards twice for seamless scrolling -->
+                    <template id="testimonial-template">
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                            <img src="" alt="Student" class="w-12 h-12 rounded-full mr-4 object-cover">
+                            <div>
+                                <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                                <p class="text-marble-gray leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </template>
+                    <!-- First sequence of testimonials -->
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-semibold text-aegean-blue">Michael R.</h4>
-                            <p class="text-sm text-marble-gray">From USA</p>
-                            <div class="flex text-olive-gold text-sm">★★★★★</div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-max"></p>
                         </div>
                     </div>
-                    <p class="text-marble-gray leading-relaxed mb-4">
-                        "The cultural immersion approach really sets Ioanna apart. I didn't just learn the language – I fell in love with Greek culture, traditions, and history. Her passion for teaching is contagious, and she always makes every lesson engaging and fun."
-                    </p>
-                    <div class="text-sm text-marble-gray">
-                        <strong>Progress:</strong> A1 → B2 in 12 months
-                    </div>
-                </div>
-
-                <div class="testimonial-card bg-white rounded-2xl p-6 shadow-lg">
-                    <div class="flex items-center mb-4">
-                        <img src="resources/teacher-ioanna.jpg" alt="Student Elena" class="w-12 h-12 rounded-full object-cover mr-4">
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
                         <div>
-                            <h4 class="font-semibold text-aegean-blue">Elena K.</h4>
-                            <p class="text-sm text-marble-gray">From Canada</p>
-                            <div class="flex text-olive-gold text-sm">★★★★★</div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-beate"></p>
                         </div>
                     </div>
-                    <p class="text-marble-gray leading-relaxed mb-4">
-                        "Ioanna helped me achieve my dream of speaking Greek with my grandparents. Her patience, encouragement, and personalized approach made all the difference. She understood my emotional connection to the language and tailored every lesson accordingly."
-                    </p>
-                    <div class="text-sm text-marble-gray">
-                        <strong>Progress:</strong> A0 → B1 in 10 months
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-paulina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-nikolai"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-martina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-jochen"></p>
+                        </div>
+                    </div>
+                    <!-- Duplicate sequence for smooth looping -->
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-max"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-beate"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-paulina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-elena.png" alt="Elena" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-nikolai"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-michael.png" alt="Michael" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-martina"></p>
+                        </div>
+                    </div>
+                    <div class="review-card inline-flex items-start bg-white rounded-2xl p-6 mr-6 shadow-lg w-[36rem]">
+                        <img src="images/student-sarah.png" alt="Sarah" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <div class="flex text-olive-gold text-sm mb-2">★★★★★</div>
+                            <p class="text-marble-gray leading-relaxed" data-translate="review-jochen"></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -472,7 +623,8 @@
                 <h3 class="text-2xl font-display font-semibold mb-4">LearnGreek.eu</h3>
                 <p class="text-gray-400 mb-6" data-translate="footer-tagline">Master Greek with native expert Ioanna</p>
                 <div class="flex justify-center space-x-6 mb-8">
-                    <a href="mailto:ioannakolok@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                    <!-- Updated contact email -->
+                    <a href="mailto:contact@learngreek.eu" class="text-gray-400 hover:text-white transition-colors">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
@@ -489,6 +641,31 @@
             </div>
         </div>
     </footer>
+    <!-- Script to handle certificate zoom functionality -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const certModal = document.getElementById('certificate-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalClose = document.getElementById('modal-close');
+        // Attach click events to certificate images
+        document.querySelectorAll('.zoomable-certificate').forEach(img => {
+            img.addEventListener('click', function () {
+                modalImage.src = this.src;
+                certModal.classList.remove('hidden');
+            });
+        });
+        // Close modal when clicking close button
+        modalClose.addEventListener('click', function () {
+            certModal.classList.add('hidden');
+        });
+        // Close modal when clicking outside image
+        certModal.addEventListener('click', function (e) {
+            if (e.target === certModal) {
+                certModal.classList.add('hidden');
+            }
+        });
+    });
+    </script>
 
     <script>
         // Mobile menu functionality
@@ -518,12 +695,14 @@
             });
         }, observerOptions);
 
-        const skillSection = document.querySelector('.skill-item').parentElement;
+        // Safely handle skill bar animations only if a skill section exists
+        const skillItem = document.querySelector('.skill-item');
+        const skillSection = skillItem ? skillItem.parentElement : null;
         if (skillSection) {
             skillObserver.observe(skillSection);
         }
 
-        // Animate timeline items
+        // Animate timeline items only if they exist
         const timelineObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
@@ -540,10 +719,13 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            item.style.opacity = '0';
-            timelineObserver.observe(item);
-        });
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        if (timelineItems.length > 0) {
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                timelineObserver.observe(item);
+            });
+        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
