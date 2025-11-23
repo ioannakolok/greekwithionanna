@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frage 4 – Griechenland‑Quiz</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aegean-blue': '#1E3A8A',
+                        'santorini-white': '#FEFEFE',
+                        'olive-gold': '#D97706',
+                        'marble-gray': '#6B7280',
+                        'terracotta': '#DC2626'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display','serif'],
+                        'body': ['Inter','sans-serif'],
+                        'accent': ['Crimson Text','serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Quiz logic -->
+    <script src="assets/js/quiz.js" defer></script>
+</head>
+<body class="font-body bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2">Home</a>
+                        <a href="quiz.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2">Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main class="mt-20 py-10">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-display font-semibold text-aegean-blue mb-4">Frage 3: Griechisches Wort oder nicht?</h2>
+            <p class="text-marble-gray mb-6">Welche Wörter stammen aus dem Griechischen? Ordne jedes Wort der richtigen Kategorie zu: <strong>griechisch</strong> oder <strong>nicht griechisch</strong>.</p>
+            <div class="quiz-section">
+                <!-- Foto – griechisch -->
+                <div class="q4-row q3-row options" data-answer="griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Foto</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Planet – griechisch -->
+                <div class="q4-row q3-row options" data-answer="griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Planet</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Banane – nicht griechisch -->
+                <div class="q4-row q3-row options" data-answer="nicht griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Banane</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Karotte – nicht griechisch -->
+                <div class="q4-row q3-row options" data-answer="nicht griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Karotte</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Musik – griechisch -->
+                <div class="q4-row q3-row options" data-answer="griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Musik</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Pizza – nicht griechisch -->
+                <div class="q4-row q3-row options" data-answer="nicht griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Pizza</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Theater – griechisch -->
+                <div class="q4-row q3-row options" data-answer="griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Theater</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Chaos – griechisch -->
+                <div class="q4-row q3-row options" data-answer="griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Chaos</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Taxi – nicht griechisch -->
+                <div class="q4-row q3-row options" data-answer="nicht griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Taxi</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Sofa – nicht griechisch -->
+                <div class="q4-row q3-row options" data-answer="nicht griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Sofa</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Therapie – griechisch -->
+                <div class="q4-row q3-row options" data-answer="griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Therapie</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Kaffee – nicht griechisch -->
+                <div class="q4-row q3-row options" data-answer="nicht griechisch" data-attempts="0">
+                    <span class="font-accent text-lg">Kaffee</span>
+                    <div class="flex gap-2">
+                        <div class="quiz-option" data-value="griechisch">griechisch</div>
+                        <div class="quiz-option" data-value="nicht griechisch">nicht griechisch</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+            </div>
+            <!-- Actions -->
+            <button type="button" class="nav-btn mt-4" onclick="evaluateOptions('.q4-row','4',12)">Antwort prüfen</button>
+            <div class="mt-6 flex justify-between">
+                <a href="q3.html" class="nav-btn">Zurück</a>
+                <a href="q5.html" class="nav-btn">Weiter</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frage 6 – Griechenland‑Quiz</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aegean-blue': '#1E3A8A',
+                        'santorini-white': '#FEFEFE',
+                        'olive-gold': '#D97706',
+                        'marble-gray': '#6B7280',
+                        'terracotta': '#DC2626'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display','serif'],
+                        'body': ['Inter','sans-serif'],
+                        'accent': ['Crimson Text','serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Quiz logic for audio and evaluation -->
+    <script src="assets/js/quiz.js" defer></script>
+</head>
+<body class="font-body bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2">Home</a>
+                        <a href="quiz.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2">Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main class="mt-20 py-10">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-display font-semibold text-aegean-blue mb-4">Frage 6: Griechisch‑Basics</h2>
+            <p class="text-marble-gray mb-6">Errate die Bedeutung dieser typischen Ausdrücke. Klicke für jedes griechische Wort die passende deutsche Übersetzung an. Mit dem Lautsprechersymbol kannst du dir den griechischen Ausdruck anhören.</p>
+            <div class="quiz-section">
+                <!-- Καλημέρα! – Guten Tag! -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Guten Tag!" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Καλημέρα!</span><br>
+                            <span class="text-sm text-marble-gray">/kaliméra!/</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Καλημέρα!')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Καληνύχτα! – Gute Nacht! -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Gute Nacht!" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Καληνύχτα!</span><br>
+                            <span class="text-sm text-marble-gray">/kaliníkhta!/</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Καληνύχτα!')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Ευχαριστώ. – Danke -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Danke" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Ευχαριστώ.</span><br>
+                            <span class="text-sm text-marble-gray">/efcharistó/</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Ευχαριστώ.')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Παρακαλώ. – Bitte -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Bitte" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Παρακαλώ.</span><br>
+                            <span class="text-sm text-marble-gray">/parakaló/</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Παρακαλώ.')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Αντίο – Tschüss -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Tschüss" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Αντίο</span><br>
+                            <span class="text-sm text-marble-gray">/adío/</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Αντίο')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Τι κάνεις; – Wie geht’s? -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Wie geht’s?" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Τι κάνεις;</span><br>
+                            <span class="text-sm text-marble-gray">/ti kánis?/</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Τι κάνεις;')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Συγνώμη. – Entschuldigung -->
+                <div class="q6-row options flex flex-col sm:flex-row items-center gap-3 mb-4" data-answer="Entschuldigung" data-attempts="0">
+                    <div class="flex items-start gap-2 min-w-fit">
+                        <div>
+                            <span class="font-accent text-lg">Συγνώμη.</span><br>
+                            <span class="text-sm text-marble-gray">/signómi./</span>
+                        </div>
+                        <button type="button" class="audio-btn" onclick="speakWord('Συγνώμη.')">🔊</button>
+                    </div>
+                    <!-- Use a grid to evenly space three answer bubbles on each row -->
+                    <div class="grid grid-cols-3 gap-2 flex-1">
+                        <div class="quiz-option" data-value="Guten Tag!">Guten Tag!</div>
+                        <div class="quiz-option" data-value="Gute Nacht!">Gute Nacht!</div>
+                        <div class="quiz-option" data-value="Danke">Danke</div>
+                        <div class="quiz-option" data-value="Bitte">Bitte</div>
+                        <div class="quiz-option" data-value="Tschüss">Tschüss</div>
+                        <div class="quiz-option" data-value="Wie geht’s?">Wie geht’s?</div>
+                        <div class="quiz-option" data-value="Entschuldigung">Entschuldigung</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+            </div>
+            <!-- Actions -->
+            <button type="button" class="nav-btn mt-4" onclick="evaluateOptions('.q6-row','6',7)">Antwort prüfen</button>
+            <div class="mt-6 flex justify-between">
+                <a href="q5.html" class="nav-btn">Zurück</a>
+                <a href="q7.html" class="nav-btn">Weiter</a>
+            </div>
+        </div>
+    </main>
+    <!-- Script to limit options to 4 and randomize order per row -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Define all possible German phrases
+        const allOptions = [
+            'Guten Tag!',
+            'Gute Nacht!',
+            'Danke',
+            'Bitte',
+            'Tschüss',
+            'Wie geht’s?',
+            'Entschuldigung'
+        ];
+        const rows = document.querySelectorAll('.q6-row');
+        rows.forEach(row => {
+            const answer = row.dataset.answer;
+            // Build a fresh copy of all options and remove the correct answer
+            const values = allOptions.filter(val => val !== answer);
+            // Shuffle remaining values
+            values.sort(() => Math.random() - 0.5);
+            // Pick two wrong answers
+            const wrongs = values.slice(0, 2);
+            // Combine with the correct answer
+            const finalVals = [answer, ...wrongs];
+            // Shuffle the final list
+            finalVals.sort(() => Math.random() - 0.5);
+            // Build option elements
+            // Target the options container (now using grid instead of flex)
+            const container = row.querySelector('.grid') || row.querySelector('.flex.flex-wrap');
+            container.innerHTML = '';
+            finalVals.forEach(val => {
+                const div = document.createElement('div');
+                div.classList.add('quiz-option');
+                div.dataset.value = val;
+                div.textContent = val;
+                container.appendChild(div);
+            });
+        });
+        // Re-initialise option handlers after dynamic creation
+        if (typeof initOptionHandlers === 'function') {
+            initOptionHandlers();
+        }
+    });
+    </script>
+</body>
+</html>

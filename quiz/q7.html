@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frage 7 – Griechenland‑Quiz</title>
+    <!-- Google Fonts & Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aegean-blue': '#1E3A8A',
+                        'santorini-white': '#FEFEFE',
+                        'olive-gold': '#D97706',
+                        'marble-gray': '#6B7280',
+                        'terracotta': '#DC2626'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display','serif'],
+                        'body': ['Inter','sans-serif'],
+                        'accent': ['Crimson Text','serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Quiz logic -->
+    <script src="assets/js/quiz.js" defer></script>
+</head>
+<body class="font-body bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2">Home</a>
+                        <a href="quiz.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2">Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main class="mt-20 py-10">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-display font-semibold text-aegean-blue mb-4">Frage 7: Griechische Instrumente</h2>
+            <p class="text-marble-gray mb-6">Kennst du die Instrumente aus Griechenland? Finde zu jedem Bild den richtigen Instrumentennamen! Unter jedem griechischen Wort stehen die Lautschrift und die deutsche Bedeutung. Tippe auf das Lautsprechersymbol, um das Wort zu hören🎵 Viel Spaß beim Erraten!</p>
+            <div class="quiz-section">
+                <!-- Bouzouki -->
+                <div class="q7-row options flex flex-col items-center gap-3 mb-6" data-answer="μπουζούκι" data-attempts="0">
+                    <!-- Image -->
+                    <div class="w-full">
+                        <img src="assets/images/bouzouki.jpg" alt="Bouzouki" class="max-w-md w-full rounded-lg shadow-md mx-auto" />
+                    </div>
+                    <!-- Info & audio -->
+                    <div class="flex flex-col items-center">
+                        <span class="font-accent text-lg">μπουζούκι</span>
+                        <span class="text-sm text-marble-gray">/buzúki/</span>
+                        <!-- Bouzouki hat keine gängige Übersetzung -->
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-2 justify-center mt-1">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="audio-btn" onclick="speakWord('μπουζούκι')">🔊</button>
+                            <span class="text-marble-gray text-sm">Anhören</span>
+                        </div>
+                    </div>
+                    <!-- Options -->
+                    <div class="flex flex-wrap justify-center gap-2 w-full">
+                        <div class="quiz-option" data-value="μπουζούκι">μπουζούκι</div>
+                        <div class="quiz-option" data-value="λύρα">λύρα</div>
+                        <div class="quiz-option" data-value="κλαρίνο">κλαρίνο</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Klarino (Clarinet) -->
+                <div class="q7-row options flex flex-col items-center gap-3 mb-6" data-answer="κλαρίνο" data-attempts="0">
+                    <div class="w-full">
+                        <img src="assets/images/klarino.jpg" alt="Klarino" class="max-w-md w-full rounded-lg shadow-md mx-auto" />
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-accent text-lg">κλαρίνο</span>
+                        <span class="text-sm text-marble-gray">/klaríno/</span>
+                        <span class="text-sm text-marble-gray">Klarinette</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-2 justify-center mt-1">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="audio-btn" onclick="speakWord('κλαρίνο')">🔊</button>
+                            <span class="text-marble-gray text-sm">Anhören</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-2 w-full">
+                        <div class="quiz-option" data-value="κλαρίνο">κλαρίνο</div>
+                        <div class="quiz-option" data-value="νταούλι">νταούλι</div>
+                        <div class="quiz-option" data-value="σαντούρι">σαντούρι</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Lyra -->
+                <div class="q7-row options flex flex-col items-center gap-3 mb-6" data-answer="λύρα" data-attempts="0">
+                    <div class="w-full">
+                        <img src="assets/images/lyra.jpg" alt="Lyra" class="max-w-md w-full rounded-lg shadow-md mx-auto" />
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-accent text-lg">λύρα</span>
+                        <span class="text-sm text-marble-gray">/líra/</span>
+                        <!-- keine deutsche Übersetzung erforderlich -->
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-2 justify-center mt-1">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="audio-btn" onclick="speakWord('λύρα')">🔊</button>
+                            <span class="text-marble-gray text-sm">Anhören</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-2 w-full">
+                        <div class="quiz-option" data-value="λύρα">λύρα</div>
+                        <div class="quiz-option" data-value="ντέφι">ντέφι</div>
+                        <div class="quiz-option" data-value="σαντούρι">σαντούρι</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Defi (Tamburin) -->
+                <div class="q7-row options flex flex-col items-center gap-3 mb-6" data-answer="ντέφι" data-attempts="0">
+                    <div class="w-full">
+                        <img src="assets/images/defi.jpg" alt="Defi" class="max-w-md w-full rounded-lg shadow-md mx-auto" />
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-accent text-lg">ντέφι</span>
+                        <span class="text-sm text-marble-gray">/défi/</span>
+                        <span class="text-sm text-marble-gray">Tamburin</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-2 justify-center mt-1">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="audio-btn" onclick="speakWord('ντέφι')">🔊</button>
+                            <span class="text-marble-gray text-sm">Anhören</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-2 w-full">
+                        <div class="quiz-option" data-value="ντέφι">ντέφι</div>
+                        <div class="quiz-option" data-value="μπουζούκι">μπουζούκι</div>
+                        <div class="quiz-option" data-value="νταούλι">νταούλι</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Ntaouli (Drum) -->
+                <div class="q7-row options flex flex-col items-center gap-3 mb-6" data-answer="νταούλι" data-attempts="0">
+                    <div class="w-full">
+                        <img src="assets/images/ntaouli.jpg" alt="Ntaouli" class="max-w-md w-full rounded-lg shadow-md mx-auto" />
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-accent text-lg">νταούλι</span>
+                        <span class="text-sm text-marble-gray">/daúli/</span>
+                        <span class="text-sm text-marble-gray">Trommel</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-2 justify-center mt-1">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="audio-btn" onclick="speakWord('νταούλι')">🔊</button>
+                            <span class="text-marble-gray text-sm">Anhören</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-2 w-full">
+                        <div class="quiz-option" data-value="νταούλι">νταούλι</div>
+                        <div class="quiz-option" data-value="κλαρίνο">κλαρίνο</div>
+                        <div class="quiz-option" data-value="μπουζούκι">μπουζούκι</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+                <!-- Santouri (Hackbrett) -->
+                <div class="q7-row options flex flex-col items-center gap-3 mb-6" data-answer="σαντούρι" data-attempts="0">
+                    <div class="w-full">
+                        <img src="assets/images/santouri.jpg" alt="Santouri" class="max-w-md w-full rounded-lg shadow-md mx-auto" />
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="font-accent text-lg">σαντούρι</span>
+                        <span class="text-sm text-marble-gray">/santúri/</span>
+                        <span class="text-sm text-marble-gray">Hackbrett</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-2 justify-center mt-1">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="audio-btn" onclick="speakWord('σαντούρι')">🔊</button>
+                            <span class="text-marble-gray text-sm">Anhören</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-2 w-full">
+                        <div class="quiz-option" data-value="σαντούρι">σαντούρι</div>
+                        <div class="quiz-option" data-value="ντέφι">ντέφι</div>
+                        <div class="quiz-option" data-value="λύρα">λύρα</div>
+                    </div>
+                    <span class="smiley"></span>
+                    <span class="hint hidden"></span>
+                </div>
+            </div>
+            <!-- Actions -->
+            <button type="button" class="nav-btn mt-4" onclick="evaluateOptions('.q7-row','7',6)">Antwort prüfen</button>
+            <div class="mt-6 flex justify-between">
+                <a href="q6.html" class="nav-btn">Zurück</a>
+                <a href="q8.html" class="nav-btn">Weiter</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
