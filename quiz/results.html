@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ergebnis – Griechenland‑Quiz</title>
+    <!-- Fonts & Tailwind -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aegean-blue': '#1E3A8A',
+                        'santorini-white': '#FEFEFE',
+                        'olive-gold': '#D97706',
+                        'marble-gray': '#6B7280',
+                        'terracotta': '#DC2626'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display','serif'],
+                        'body': ['Inter','sans-serif'],
+                        'accent': ['Crimson Text','serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/quiz.js" defer></script>
+</head>
+<body class="font-body bg-santorini-white" onload="renderResults()">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2">Home</a>
+                        <a href="quiz.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2">Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main class="mt-20 py-10">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-display font-semibold text-aegean-blue mb-4">Dein Ergebnis</h2>
+            <div id="smiley" class="text-5xl mb-4"></div>
+            <div id="message" class="mb-6"></div>
+            <div id="result-summary" class="mb-6"></div>
+            <button type="button" class="nav-btn" onclick="resetQuiz(); window.location.href='quiz.html';">Quiz neu starten</button>
+            <p class="text-marble-gray mt-6">Lass uns weiter Griechisch lernen mit Ioanna , ioanna@learngreek.eu !</p>
+        </div>
+    </main>
+</body>
+</html>
