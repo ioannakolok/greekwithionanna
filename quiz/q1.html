@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frage 1 – Griechenland‑Quiz</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aegean-blue': '#1E3A8A',
+                        'santorini-white': '#FEFEFE',
+                        'olive-gold': '#D97706',
+                        'marble-gray': '#6B7280',
+                        'terracotta': '#DC2626'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display','serif'],
+                        'body': ['Inter','sans-serif'],
+                        'accent': ['Crimson Text','serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Quiz logic for audio support -->
+    <script src="assets/js/quiz.js" defer></script>
+</head>
+<body class="font-body bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-marble-gray hover:text-aegean-blue px-1 py-2">Home</a>
+                        <a href="quiz.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2">Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <main class="mt-20 py-10">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-display font-semibold text-aegean-blue mb-4">Frage 1: Ordne die Buchstaben zu</h2>
+            <p class="text-marble-gray mb-6">Finde zu jedem griechischen Buchstaben den passenden deutschen Laut. Klick auf den Lautsprecher und hör genau hin!</p>
+
+            <!-- Letter matching task -->
+            <div class="quiz-section">
+                <!-- Greek letters with drop zones -->
+                <div id="letter-rows" class="space-y-4">
+                    <!-- α -->
+                    <div class="flex items-center gap-3" data-answer="a">
+                        <span class="font-accent font-bold text-lg">α</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('α')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="a"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- ε -->
+                    <div class="flex items-center gap-3" data-answer="ä">
+                        <span class="font-accent font-bold text-lg">ε</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('ε')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="ä"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- κ -->
+                    <div class="flex items-center gap-3" data-answer="k">
+                        <span class="font-accent font-bold text-lg">κ</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('κ')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="k"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- λ -->
+                    <div class="flex items-center gap-3" data-answer="l">
+                        <span class="font-accent font-bold text-lg">λ</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('λ')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="l"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- μ -->
+                    <div class="flex items-center gap-3" data-answer="m">
+                        <span class="font-accent font-bold text-lg">μ</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('μ')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="m"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- σ -->
+                    <div class="flex items-center gap-3" data-answer="ss">
+                        <span class="font-accent font-bold text-lg">σ</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('σ')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="ss"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- τ -->
+                    <div class="flex items-center gap-3" data-answer="t">
+                        <span class="font-accent font-bold text-lg">τ</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('τ')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="t"></div>
+                        <span class="smiley"></span>
+                    </div>
+                    <!-- φ -->
+                    <div class="flex items-center gap-3" data-answer="f">
+                        <span class="font-accent font-bold text-lg">φ</span>
+                        <button type="button" class="audio-btn" onclick="speakWord('φ')">🔊</button>
+                        <!-- Increase the drop zone size for better mobile usability -->
+                        <div class="drop-zone border-2 border-gray-300 rounded px-6 py-3 min-w-[6rem] text-center" data-answer="f"></div>
+                        <span class="smiley"></span>
+                    </div>
+                </div>
+                <!-- Pool of German letters -->
+                <div class="mt-8">
+                    <h3 class="text-lg font-semibold text-aegean-blue mb-2">Ziehe die deutschen Laute zu den passenden Buchstaben:</h3>
+                    <div id="letter-pool" class="flex flex-wrap gap-2">
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="a">a</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="ä">ä</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="k">k</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="l">l</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="m">m</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="ss">ss</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="t">t</div>
+                        <div class="drag-letter border-2 border-gray-300 rounded px-3 py-1 cursor-move" draggable="true" data-value="f">f</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Action buttons -->
+            <button type="button" class="nav-btn mt-4" onclick="evaluateOptions('.flex.items-center','1',8)">Antwort prüfen</button>
+            <div class="mt-6 flex justify-between">
+                <a href="quiz.html" class="nav-btn">Zurück</a>
+                <!-- Call evaluateOptions silently before navigating to the next question so answers are recorded even if the user skips the check button -->
+                <a href="q2.html" class="nav-btn" onclick="evaluateOptions('#letter-rows > div','1',8,true); window.location.href='q2.html'; return false;">Weiter</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Drag and drop logic specific to question 1 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Shuffle the pool of German letters at page load for variety
+        const pool = document.getElementById('letter-pool');
+        const children = Array.from(pool.children);
+        children.sort(() => Math.random() - 0.5);
+        children.forEach(child => pool.appendChild(child));
+
+        // Desktop drag‑and‑drop support using the native API
+        document.querySelectorAll('.drag-letter').forEach(el => {
+            el.addEventListener('dragstart', function (e) {
+                // Transfer the value for drop handling
+                e.dataTransfer.setData('text/plain', this.dataset.value);
+                // Add a class to enlarge the letter while dragging
+                this.classList.add('dragging');
+            });
+            el.addEventListener('dragend', function () {
+                // Remove the enlarged styling once dragging ends
+                this.classList.remove('dragging');
+            });
+        });
+        // Handle drop on zones for desktop
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+            });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                // If already filled, ignore
+                if (zone.textContent.trim() !== '') return;
+                const value = e.dataTransfer.getData('text/plain');
+                const dragEl = document.querySelector('.drag-letter[data-value="' + value + '"]');
+                if (!dragEl) return;
+                const correct = zone.dataset.answer;
+                const smiley = zone.parentNode.querySelector('.smiley');
+                if (value === correct) {
+                    // Place the letter text into the drop zone
+                    zone.textContent = value;
+                    zone.classList.remove('border-gray-300');
+                    zone.classList.add('bg-green-100', 'border-green-500');
+                    if (smiley) {
+                        smiley.textContent = '😊';
+                        smiley.classList.add('correct');
+                        smiley.classList.remove('incorrect');
+                    }
+                    // Remove letter from the pool
+                    dragEl.remove();
+                    // Mark row as selected for evaluation
+                    zone.parentNode.dataset.selected = value;
+                } else {
+                    // Wrong drop – provide visual feedback
+                    if (smiley) {
+                        smiley.textContent = '😕';
+                        smiley.classList.add('incorrect');
+                        smiley.classList.remove('correct');
+                    }
+                }
+            });
+        });
+
+        /*
+         * Custom pointer‑based dragging for touch devices.
+         * The native HTML drag‑and‑drop API does not provide good
+         * feedback on mobile; the dragged element often stays in place
+         * and the user cannot see what is being dragged. To improve
+         * usability we create a floating clone of the letter that
+         * follows the finger. When the pointer is released we detect
+         * whether it ended on a drop zone and handle placement.
+         */
+        function initTouchDrag(letterEl) {
+            letterEl.addEventListener('pointerdown', function(ev) {
+                // Only trigger for touch or pen inputs
+                if (ev.pointerType !== 'touch' && ev.pointerType !== 'pen') return;
+                // Prevent the default to avoid simultaneously starting a native drag
+                ev.preventDefault();
+                const value = letterEl.dataset.value;
+                // Clone the element for the floating drag representation
+                const clone = letterEl.cloneNode(true);
+                clone.classList.add('dragging');
+                clone.style.position = 'fixed';
+                clone.style.left = (ev.clientX - clone.offsetWidth / 2) + 'px';
+                clone.style.top = (ev.clientY - clone.offsetHeight / 2) + 'px';
+                clone.style.pointerEvents = 'none';
+                document.body.appendChild(clone);
+                // Track pointer movement
+                const move = function(e) {
+                    clone.style.left = (e.clientX - clone.offsetWidth / 2) + 'px';
+                    clone.style.top = (e.clientY - clone.offsetHeight / 2) + 'px';
+                };
+                const up = function(e) {
+                    document.removeEventListener('pointermove', move);
+                    document.removeEventListener('pointerup', up);
+                    // Determine the element under the pointer on release
+                    let target = document.elementFromPoint(e.clientX, e.clientY);
+                    while (target && !target.classList.contains('drop-zone') && target !== document.body) {
+                        target = target.parentElement;
+                    }
+                    if (target && target.classList.contains('drop-zone') && target.textContent.trim() === '') {
+                        const correct = target.dataset.answer;
+                        const smiley = target.parentNode.querySelector('.smiley');
+                        if (value === correct) {
+                            target.textContent = value;
+                            target.classList.remove('border-gray-300');
+                            target.classList.add('bg-green-100', 'border-green-500');
+                            if (smiley) {
+                                smiley.textContent = '😊';
+                                smiley.classList.add('correct');
+                                smiley.classList.remove('incorrect');
+                            }
+                            // Remove original from pool
+                            const original = document.querySelector('.drag-letter[data-value="' + value + '"]');
+                            if (original) original.remove();
+                            target.parentNode.dataset.selected = value;
+                        } else {
+                            // Wrong drop: provide immediate feedback on the corresponding row
+                            if (smiley) {
+                                smiley.textContent = '😕';
+                                smiley.classList.add('incorrect');
+                                smiley.classList.remove('correct');
+                            }
+                        }
+                    }
+                    // Remove the floating clone
+                    clone.remove();
+                };
+                document.addEventListener('pointermove', move);
+                document.addEventListener('pointerup', up);
+            });
+        }
+        // Initialise pointer‑based dragging on all letters
+        document.querySelectorAll('.drag-letter').forEach(initTouchDrag);
+    });
+    </script>
+</body>
+</html>

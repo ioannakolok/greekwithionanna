@@ -1,0 +1,213 @@
+/*
+ * Custom styling for the LearnGreek.eu quiz
+ *
+ * This stylesheet borrows colours from the existing website
+ * (Aegean blue and olive gold) and defines classes for
+ * interactive quiz options, smileys and hints. It is designed
+ * to work alongside Tailwind CSS, which is loaded via CDN
+ * in each quiz page.
+ */
+
+/* Quiz container */
+.quiz-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, #f9fafb, #ffffff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* General row styling for matching questions (q1, q3, etc.). Ensure the Greek word
+   or term and the list of options align nicely on one line where possible. */
+.quiz-row,
+.q1-row,
+.q3-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Ensure question 4 rows (free input) align elements neatly. */
+.q4-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Ensure the label (e.g., greek word or term) has a minimum width so it
+   doesn’t wrap onto its own line when the options wrap. */
+.quiz-row > div:first-child,
+.q1-row > div:first-child,
+.q3-row > span:first-child {
+    min-width: 120px;
+}
+
+/* Option styling */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    /* Align option buttons neatly in a row without uneven spacing */
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.quiz-option {
+    border: 2px solid #d1d5db; /* Tailwind gray-300 */
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    font-size: 1rem;
+    /* Allow long words to wrap across lines and break at boundaries */
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.quiz-option:hover {
+    background-color: #f3f4f6;
+    border-color: #1e3a8a; /* Aegean blue */
+}
+
+.quiz-option.selected {
+    background-color: #fef3c7; /* Tailwind amber-100 */
+    border-color: #d97706; /* Olive gold */
+}
+
+.quiz-option.correct {
+    background-color: #d1fae5; /* Tailwind green-100 */
+    border-color: #22c55e;    /* Tailwind green-500 */
+    color: #065f46;           /* Dark green */
+}
+
+.quiz-option.incorrect {
+    background-color: #fee2e2; /* Tailwind red-100 */
+    border-color: #ef4444;    /* Tailwind red-500 */
+    color: #991b1b;           /* Dark red */
+}
+
+/* Allow long words to wrap within quiz option buttons. This prevents
+   terms like “Entschuldigung” from overflowing on small screens. */
+/* removed duplicate rule because it is now integrated into .quiz-option above */
+
+/* On small screens, reduce font size and adjust padding of options for better fit */
+@media (max-width: 640px) {
+    .quiz-option {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.5rem;
+    }
+    /* Further shrink options in question 6 on very small screens */
+    .q6-row .quiz-option {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.4rem;
+    }
+}
+
+/* Reduce font size for long words in question 6 on all screens */
+.q6-row .quiz-option {
+    font-size: 0.9rem;
+}
+
+/* Enlarge dragged letters in question 1 for better visibility on touch devices */
+.drag-letter.dragging {
+    transform: scale(1.8);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Smileys next to each row */
+.smiley {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+/* Hint text for correct answers */
+.hint {
+    font-size: 0.875rem;
+    color: #6b7280; /* Tailwind gray-500 */
+    margin-left: 0.5rem;
+}
+
+/* Colour the smiley depending on correct/incorrect state. These classes are
+   toggled in the quiz.js logic. */
+.smiley.correct {
+    color: #22c55e; /* green-500 */
+}
+
+.smiley.incorrect {
+    color: #ef4444; /* red-500 */
+}
+
+/* Recording button */
+.record-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: #d97706; /* Olive gold */
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease;
+}
+
+/* Audio button styling: small icon with no background */
+.audio-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+}
+.audio-btn:focus {
+    outline: none;
+}
+
+.record-btn:hover {
+    background-color: #b45309; /* Darker gold */
+}
+
+/* Disabled record button state */
+.record-btn.disabled {
+    background-color: #d1d5db;
+    cursor: not-allowed;
+    color: #6b7280;
+}
+
+/* Table styling */
+.quiz-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+.quiz-table th, .quiz-table td {
+    padding: 0.5rem;
+    vertical-align: top;
+}
+.quiz-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Button styling for navigation */
+.nav-btn {
+    background-color: #1e3a8a; /* Aegean blue */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+    font-size: 0.875rem;
+}
+.nav-btn:hover {
+    background-color: #16457a;
+}
