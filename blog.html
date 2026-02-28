@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts – LearnGreek.eu</title>
+    <meta name="description" content="Explore articles about learning Greek, culture and language tips.">
+    <meta name="keywords" content="Greek blog, Greek language articles, Greek culture, Greek learning tips, learn Greek, blog posts, griechischer Blog">
+    <meta property="og:title" content="Blog Posts – LearnGreek.eu">
+    <meta property="og:description" content="Explore articles about learning Greek, culture and language tips.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/hero-santorini.jpg">
+    <meta property="og:url" content="https://learngreek.eu/blog.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Language Management -->
+    <script src="translations.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'aegean-blue': '#1E3A8A',
+                    'santorini-white': '#FEFEFE',
+                    'olive-gold': '#D97706',
+                    'marble-gray': '#6B7280',
+                    'terracotta': '#DC2626'
+                },
+                fontFamily: {
+                    'display': ['Playfair Display', 'serif'],
+                    'body': ['Inter', 'sans-serif'],
+                    'accent': ['Crimson Text', 'serif']
+                }
+            }
+        }
+    };
+    </script>
+    <!-- Prevent navigation text from wrapping -->
+    <style>
+        nav a {
+            white-space: nowrap;
+        }
+        /* Prevent dropdown buttons from wrapping (e.g., "Greek Culture") */
+        nav button span {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <!-- Home -->
+                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
+
+                        <!-- Quiz link -->
+                        <a href="quiz/quiz.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2">Quiz</a>
+                        <!-- Courses dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-courses">Courses</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                                <a href="science.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                            </div>
+                        </div>
+                        <!-- Greek culture dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-culture">Greek Culture</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <!-- Modern Greek Culture nested dropdown -->
+                                <div class="relative group">
+                                    <button class="flex w-full justify-between items-center px-4 py-2 text-marble-gray hover:text-aegean-blue focus:outline-none">
+                                        <span data-translate="nav-modern" class="whitespace-nowrap">Modern Greek Culture</span>
+                                        <svg class="ml-2 w-4 h-4 transform rotate-0 group-hover:rotate-90 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M7.21 5.23a.75.75 0 01.02 1.06L4.563 10l2.667 3.71a.75.75 0 01-1.1 1.02l-3.667-4a.75.75 0 010-1.02l3.667-4a.75.75 0 011.06-.02z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="absolute left-full top-0 ml-1 mt-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                        <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                                        <a href="cuisines.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                                    </div>
+                                </div>
+                                <!-- Ancient Greek Culture link -->
+                                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                            </div>
+                        </div>
+                        <!-- Blog (active) -->
+                        <a href="blog.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2" data-translate="nav-blog">Blog</a>
+                        <!-- Meet Ioanna -->
+                        <a href="about.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+                        <!-- Book Lesson -->
+                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-marble-gray hover:text-aegean-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Home -->
+                <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
+
+                <!-- Quiz -->
+                <a href="quiz/quiz.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue">Quiz</a>
+                <!-- Courses and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-courses">Courses</span>
+                <a href="courses.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                <!-- Greek culture and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-culture">Greek Culture</span>
+                <span class="block px-4 py-2 text-marble-gray font-medium whitespace-nowrap" data-translate="nav-modern">Modern Greek Culture</span>
+                <a href="traditions.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                <!-- Blog (active) -->
+                <a href="blog.html" class="block px-3 py-2 text-aegean-blue font-medium border-l-4 border-olive-gold bg-gray-50" data-translate="nav-blog">Blog</a>
+                <!-- Meet Ioanna -->
+                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">Meet Ioanna</a>
+                <!-- Book Lesson -->
+                <a href="contact.html" class="block px-3 py-2 bg-olive-gold text-white rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Decorative gap between the fixed navigation and the page content -->
+    <div class="w-full h-1 bg-gradient-to-r from-aegean-blue via-olive-gold to-terracotta"></div>
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-display font-bold text-aegean-blue mb-6" data-translate="blog-list-title">Blog Posts</h1>
+                <p class="text-xl text-marble-gray max-w-3xl mx-auto mb-8" data-translate="blog-list-description">
+                    Explore articles about learning Greek, culture and language tips.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Listing Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Blog Post Card -->
+                <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-gray-100 shadow">
+                    <img src="images/hero-santorini.jpg" alt="Greek landscape" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2" data-translate="blog1-title">“But Greek Is Such a Difficult Language…”</h3>
+                    <p class="text-base text-marble-gray mb-4" data-translate="blog1-excerpt">
+                        Greek isn’t easy, but difficulty is not the enemy. Learn why mastering Greek is like building a home brick by brick and discover the joy of Greek culture.
+                    </p>
+                    <a href="blog-post-1.html" class="text-olive-gold font-semibold hover:underline" data-translate="blog-read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-aegean-blue text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">LearnGreek.eu</h3>
+                    <p class="text-sm text-gray-300 mb-4" data-translate="footer-tagline">
+                        Master Greek with native expert Ioanna
+                    </p>
+                    <p class="text-sm text-gray-400">Berlin, Germany (Online)</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white" data-translate="nav-home">Home</a></li>
+                        <li><a href="courses.html" class="text-gray-300 hover:text-white" data-translate="nav-courses">Courses</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white" data-translate="nav-about">Meet Ioanna</a></li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-white" data-translate="nav-blog">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white" data-translate="nav-contact">Book Lesson</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-300">Email: </span><a href="mailto:contact@learngreek.eu" class="text-gray-300 hover:text-white">contact@learngreek.eu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-300 hover:text-white"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.38 8.6 8.6 0 01-2.73 1.05 4.28 4.28 0 00-7.3 3.9A12.14 12.14 0 013 4.8a4.28 4.28 0 001.32 5.71c-.67-.02-1.3-.21-1.85-.51v.05a4.28 4.28 0 003.44 4.2 4.3 4.3 0 01-1.92.07 4.28 4.28 0 004 2.97A8.58 8.58 0 012 19.54a12.07 12.07 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.38-.02-.57A8.7 8.7 0 0024 6.5a8.54 8.54 0 01-2.54.7z"/></svg></a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.18 0 5.76 2.58 5.76 5.76 0 4.4-5.76 11.44-5.76 11.44S6.24 12.36 6.24 7.96C6.24 4.78 8.82 2.2 12 2.2m0-2.2C7.03 0 3 4.03 3 8.96c0 5.38 9 15.04 9 15.04s9-9.66 9-15.04C21 4.03 16.97 0 12 0z"/></svg></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-sm text-gray-400" data-translate="footer-copyright">
+                    © 2024 LearnGreek.eu. All rights reserved. | Created with ❤️ for Greek language learners worldwide.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile menu fallback and main.js -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var mobileBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

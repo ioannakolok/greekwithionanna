@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Greek Culture – History &amp; Legacy</title>
+    <meta name="description" content="Journey back to the cradle of Western civilisation. Discover how Ancient Greece shaped democracy, art, architecture, philosophy and science, leaving a lasting legacy on the modern world.">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Language Management -->
+    <script src="translations.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'aegean-blue': '#1E3A8A',
+                    'santorini-white': '#FEFEFE',
+                    'olive-gold': '#D97706',
+                    'marble-gray': '#6B7280',
+                    'terracotta': '#DC2626'
+                },
+                fontFamily: {
+                    'display': ['Playfair Display', 'serif'],
+                    'body': ['Inter', 'sans-serif'],
+                    'accent': ['Crimson Text', 'serif']
+                }
+            }
+        }
+    };
+    </script>
+    <!-- SEO enhancements: keywords and Open Graph tags -->
+    <meta name="keywords" content="ancient Greek culture, Greek history, ancient Greece, Greek art, Greek philosophy, learn Greek, Greek lernen, antike griechische Kultur">
+    <meta property="og:title" content="Ancient Greek Culture – History &amp; Legacy | LearnGreek.eu">
+    <meta property="og:description" content="Journey back to the cradle of Western civilisation. Discover how Ancient Greece shaped democracy, art, architecture, philosophy and science, leaving a lasting legacy on the modern world.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/parthenon.jpg">
+    <meta property="og:url" content="https://learngreek.eu/ancient.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Prevent navigation text from wrapping -->
+    <style>
+        nav a {
+            white-space: nowrap;
+        }
+        /* Prevent dropdown buttons from wrapping (e.g., "Greek Culture") */
+        nav button span {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <!-- Home -->
+                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
+
+                        <!-- Quiz link -->
+                        <a href="quiz/quiz.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2">Quiz</a>
+
+                        <!-- Courses dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-courses">Courses</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                                <a href="science.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                            </div>
+                        </div>
+
+                        <!-- Greek culture dropdown (active root) -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2 hover:text-aegean-blue transition-colors focus:outline-none">
+                                <span data-translate="nav-culture">Greek Culture</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <!-- Modern Greek Culture nested dropdown -->
+                                <div class="relative group">
+                                    <button class="flex w-full justify-between items-center px-4 py-2 text-marble-gray hover:text-aegean-blue focus:outline-none">
+                                        <span data-translate="nav-modern" class="whitespace-nowrap">Modern Greek Culture</span>
+                                        <svg class="ml-2 w-4 h-4 transform rotate-0 group-hover:rotate-90 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M7.21 5.23a.75.75 0 01.02 1.06L4.563 10l2.667 3.71a.75.75 0 01-1.1 1.02l-3.667-4a.75.75 0 010-1.02l3.667-4a.75.75 0 011.06-.02z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="absolute left-full top-0 ml-1 mt-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                        <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                                        <a href="cuisines.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                                    </div>
+                                </div>
+                                <!-- Ancient Greek Culture link (active) -->
+                                <a href="ancient.html" class="block px-4 py-2 text-aegean-blue font-medium border-l-4 border-olive-gold bg-gray-50" data-translate="nav-ancient">Ancient Greek Culture</a>
+                            </div>
+                        </div>
+
+                        <!-- Blog -->
+                        <a href="blog.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-blog">Blog</a>
+
+                        <!-- Meet Ioanna -->
+                        <a href="about.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+
+                        <!-- Book Lesson -->
+                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-marble-gray hover:text-aegean-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Home -->
+                <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
+
+                <!-- Quiz -->
+                <a href="quiz/quiz.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue">Quiz</a>
+
+                <!-- Courses and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-courses">Courses</span>
+                <a href="courses.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+
+                <!-- Greek culture and sub-items (active root) -->
+                <span class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-culture">Greek Culture</span>
+                <span class="block px-4 py-2 text-marble-gray font-medium whitespace-nowrap" data-translate="nav-modern">Modern Greek Culture</span>
+                <a href="traditions.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-4 py-2 text-aegean-blue font-medium" data-translate="nav-ancient">Ancient Greek Culture</a>
+
+                <!-- Blog -->
+                <a href="blog.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-blog">Blog</a>
+
+                <!-- Meet Ioanna -->
+                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">Meet Ioanna</a>
+
+                <!-- Book Lesson -->
+                <a href="contact.html" class="block px-3 py-2 bg-olive-gold text-white rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Decorative gap between the fixed navigation and the page content -->
+    <div class="w-full h-1 bg-gradient-to-r from-aegean-blue via-olive-gold to-terracotta"></div>
+    <!-- Mobile menu toggle fallback -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var mobileBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+    </script>
+    <!-- Include main.js to enable navigation interactions and language switching -->
+    <script src="main.js"></script>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-display font-bold text-aegean-blue mb-6" data-translate="ancient-page-title">Ancient Greek Culture</h1>
+                <!-- Parthenon image for ancient culture -->
+                <img src="images/parthenon.jpg" alt="The Parthenon temple in Athens" class="mx-auto w-64 md:w-96 mb-6 rounded-lg shadow-lg">
+                <p class="text-xl text-marble-gray max-w-3xl mx-auto mb-8" data-translate="ancient-page-intro">
+                    Journey back to the cradle of Western civilisation. From democratic experiments and monumental temples to enduring myths and philosophical inquiry, Ancient Greece laid the foundations for much of the modern world.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Ensure language toggle is added even if main.js is not loaded -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.languageManager) {
+            if (!document.getElementById('language-toggle')) {
+                window.languageManager.createLanguageToggle();
+            }
+        }
+    });
+    </script>
+
+    <!-- Content Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <!-- Cradle of Western Civilisation -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="ancient-civil-title">Cradle of Western Civilisation</h2>
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="ancient-civil-text">
+                    Classical Greek culture inspired ancient Rome and laid the foundations for much of modern Western civilisation. From political ideals and artistic achievements to philosophical inquiry and scientific discovery, the legacy of Ancient Greece continues to shape our world.
+                </p>
+            </div>
+            <!-- Birthplace of Democracy -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="ancient-demo-title">Birthplace of Democracy</h2>
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="ancient-demo-text">
+                    The word “democracy” comes from the Greek words for people (demos) and rule (kratos). Athens established one of the world’s earliest democracies in the 5th century B.C., where male citizens participated directly in the assembly and a council of 500 citizens chosen by lot proposed laws for the city-state.
+                </p>
+            </div>
+            <!-- Art & Architecture -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="ancient-art-title">Art &amp; Architecture</h2>
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="ancient-art-text">
+                    Ancient Greek art embraced balance, harmony and proportion. Marble temples like the Parthenon honoured the gods, while sculptors created idealised figures that captured both physical perfection and the beauty of the human spirit.
+                </p>
+            </div>
+            <!-- Mythology & Literature -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="ancient-myth-title">Mythology &amp; Literature</h2>
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="ancient-myth-text">
+                    Epic poems such as Homer’s Iliad and Odyssey and tragedies by playwrights like Aeschylus and Sophocles introduced timeless stories of gods, heroes and human nature. Myths explained natural phenomena and taught moral lessons that still resonate today.
+                </p>
+            </div>
+            <!-- Philosophy & Science -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="ancient-philo-title">Philosophy &amp; Science</h2>
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="ancient-philo-text">
+                    Thinkers such as Socrates, Plato and Aristotle questioned the nature of existence, ethics and knowledge. Their ideas laid the groundwork for disciplines ranging from logic and politics to biology and physics.
+                </p>
+            </div>
+        </div>
+        <div class="mt-12 text-center">
+            <a href="contact.html" class="bg-olive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-all" data-translate="nav-contact">Explore Further – Book a Lesson</a>
+        </div>
+    </section>
+</body>
+</html>
