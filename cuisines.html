@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greek Cuisine – Modern Culture</title>
+    <meta name="description" content="Discover the flavours of Greece: moussaka, souvlaki, baklava, Greek salad, tzatziki and more. Learn why Greek cuisine is considered one of the healthiest and most delicious in the world.">
+    <!-- SEO keywords and OG tags for cuisine page -->
+    <meta name="keywords" content="Greek cuisine, Greek food, Greek recipes, moussaka, souvlaki, baklava, Greek salad, tzatziki, griechische Küche, griechisches Essen">
+    <meta property="og:title" content="Greek Cuisine – Learn Greek">
+    <meta property="og:description" content="Explore delicious Greek dishes like moussaka, souvlaki and baklava and learn why Greek cuisine is one of the healthiest and most tasty in the world.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://learngreek.eu/cuisines.html">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Language Management -->
+    <script src="translations.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'aegean-blue': '#1E3A8A',
+                    'santorini-white': '#FEFEFE',
+                    'olive-gold': '#D97706',
+                    'marble-gray': '#6B7280',
+                    'terracotta': '#DC2626'
+                },
+                fontFamily: {
+                    'display': ['Playfair Display', 'serif'],
+                    'body': ['Inter', 'sans-serif'],
+                    'accent': ['Crimson Text', 'serif']
+                }
+            }
+        }
+    };
+    </script>
+    
+    <!-- SEO canonical and robots tags -->
+    <link rel="canonical" href="https://learngreek.eu/cuisines.html">
+    <meta name="robots" content="index, follow">
+    <!-- Custom navigation styling to improve spacing and prevent text wrapping -->
+    <style>
+        nav a,
+        nav button span {
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+    nav {
+        border-bottom: 1px solid rgba(229,231,235,var(--tw-border-opacity));
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <!-- Home -->
+                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
+
+                        <!-- Courses dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-courses">Courses</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                                <a href="science.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                            </div>
+                        </div>
+
+                        <!-- Greek culture dropdown (active root) -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2 hover:text-aegean-blue transition-colors focus:outline-none">
+                                <span data-translate="nav-culture">Greek Culture</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <!-- Modern Greek Culture nested dropdown (active) -->
+                                <div class="relative group">
+                                    <button class="flex w-full justify-between items-center px-4 py-2 text-aegean-blue font-medium border-l-4 border-olive-gold bg-gray-50 focus:outline-none">
+                                        <span data-translate="nav-modern" class="whitespace-nowrap">Modern Greek Culture</span>
+                                        <svg class="ml-2 w-4 h-4 transform rotate-90" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M7.21 5.23a.75.75 0 01.02 1.06L4.563 10l2.667 3.71a.75.75 0 01-1.1 1.02l-3.667-4a.75.75 0 010-1.02l3.667-4a.75.75 0 011.06-.02z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="absolute left-full top-0 ml-1 mt-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 opacity-100 visible">
+                                        <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                                        <a href="cuisines.html" class="block px-4 py-2 text-aegean-blue font-medium border-l-4 border-olive-gold bg-gray-50" data-translate="nav-cuisines">Greek Cuisine</a>
+                                    </div>
+                                </div>
+                                <!-- Ancient Greek Culture link -->
+                                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                            </div>
+                        </div>
+
+                        <!-- Gallery -->
+                        <a href="blog.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-blog">Blogposts</a>
+
+                        <!-- Meet Ioanna -->
+                        <a href="about.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+
+                        <!-- Book Lesson -->
+                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-marble-gray hover:text-aegean-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Home -->
+                <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
+
+                <!-- Courses and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-courses">Courses</span>
+                <a href="courses.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+
+                <!-- Greek culture and sub-items (active) -->
+                <span class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-culture">Greek Culture</span>
+                <span class="block px-4 py-2 text-aegean-blue font-medium whitespace-nowrap" data-translate="nav-modern">Modern Greek Culture</span>
+                <a href="traditions.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-6 py-2 text-aegean-blue font-medium" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+
+                <!-- Gallery -->
+                <a href="blog.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-blog">Blogposts</a>
+
+                <!-- Meet Ioanna -->
+                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">Meet Ioanna</a>
+
+                <!-- Book Lesson -->
+                <a href="contact.html" class="block px-3 py-2 bg-olive-gold text-white rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-6xl font-display font-bold text-aegean-blue mb-6" data-translate="cuisines-page-title">Greek Cuisine</h1>
+                <p class="text-xl text-marble-gray max-w-3xl mx-auto mb-8" data-translate="cuisines-page-intro">
+                    Greek food is a celebration of fresh ingredients, simple techniques and heartfelt hospitality. Get to know the dishes that define this ancient yet timeless cuisine.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Ensure language toggle is added even if main.js is not loaded -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.languageManager) {
+            if (!document.getElementById('language-toggle')) {
+                window.languageManager.createLanguageToggle();
+            }
+        }
+    });
+    </script>
+
+    <!-- Content Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <!-- Introduction -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="cuisines-healthy-title">A Healthy &amp; Historic Cuisine</h2>
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="cuisines-healthy-text">
+                    Greek cuisine is one of the world’s oldest and healthiest. Meals revolve around seasonal vegetables, fresh herbs, olive oil, seafood and simply grilled meats. Sharing food is central to Greek culture—dishes are set in the middle of the table for everyone to enjoy together.
+                </p>
+            </div>
+            <!-- Moussaka -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="cuisines-moussaka-title">Moussaka</h2>
+                <img src="images/moussaka_small.jpg" alt="Moussaka dish" class="w-full md:w-1/2 mx-auto rounded-lg shadow-lg mb-4">
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="cuisines-moussaka-text">
+                    Often called Greece’s national dish, moussaka layers fried aubergine, potatoes and minced lamb beneath a silky béchamel sauce. Baked until golden, this comforting casserole showcases the warmth and depth of Mediterranean flavours.
+                </p>
+            </div>
+            <!-- Souvlaki -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="cuisines-souvlaki-title">Souvlaki</h2>
+                <img src="images/souvlaki.jpg" alt="Souvlaki platter" class="w-full md:w-1/2 mx-auto rounded-lg shadow-lg mb-4">
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="cuisines-souvlaki-text">
+                    Souvlaki consists of bite‑sized pieces of pork or chicken threaded onto skewers, marinated in lemon and herbs and grilled over charcoal. It’s typically served wrapped in fluffy pita bread with tomatoes, onions and a generous dollop of tzatziki.
+                </p>
+            </div>
+            <!-- Baklava -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="cuisines-baklava-title">Baklava</h2>
+                <img src="images/baklava.jpg" alt="Baklava dessert" class="w-full md:w-1/2 mx-auto rounded-lg shadow-lg mb-4">
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="cuisines-baklava-text">
+                    Baklava is a rich, sweet pastry made of layers of flaky filo dough, chopped nuts and honey syrup. It’s a beloved dessert enjoyed throughout Greece and the Mediterranean.
+                </p>
+            </div>
+            <!-- Greek Salad -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="cuisines-salad-title">Greek Salad</h2>
+                <img src="images/greek_salad.jpg" alt="Greek salad" class="w-full md:w-1/2 mx-auto rounded-lg shadow-lg mb-4">
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="cuisines-salad-text">
+                    Greek salad, also known as “Horiatiki,” combines ripe tomatoes, crisp cucumbers, red onions, Kalamata olives and creamy feta cheese, drizzled with olive oil and oregano.
+                </p>
+            </div>
+            <!-- Tzatziki -->
+            <div>
+                <h2 class="text-3xl font-display font-bold text-aegean-blue mb-4" data-translate="cuisines-tzatziki-title">Tzatziki</h2>
+                <img src="images/tzatziki.jpg" alt="Tzatziki dip" class="w-full md:w-1/2 mx-auto rounded-lg shadow-lg mb-4">
+                <p class="text-lg text-marble-gray leading-relaxed" data-translate="cuisines-tzatziki-text">
+                    Tzatziki is a cool, creamy dip made from thick strained yoghurt, grated cucumber, garlic and herbs. It’s a staple accompaniment to grilled meats and vegetables.
+                </p>
+            </div>
+        </div>
+        <div class="mt-12 text-center">
+            <a href="contact.html" class="bg-olive-gold text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-all" data-translate="nav-contact">Taste Greece – Book a Lesson</a>
+        </div>
+    </section>
+</body>
+</html>

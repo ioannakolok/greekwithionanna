@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogposts – Learn Greek with Ioanna</title>
+    <!-- Search engine optimisation -->
+    <meta name="description" content="Read inspiring articles about learning Greek, Greek culture and language tips from Ioanna. Stay motivated on your journey to master the Greek language.">
+    <meta name="keywords" content="learn Greek, study Greek, Greek language, Greek lessons, Greek culture, Griechisch lernen, Griechische Sprache, Griechischkurs, Sprache lernen">
+    <meta property="og:title" content="Blogposts – Learn Greek with Ioanna">
+    <meta property="og:description" content="Discover articles that motivate you to continue learning Greek and explore Greek culture.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://learngreek.eu/blog.html">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Language Management -->
+    <script src="translations.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'aegean-blue': '#1E3A8A',
+                    'santorini-white': '#FEFEFE',
+                    'olive-gold': '#D97706',
+                    'marble-gray': '#6B7280',
+                    'terracotta': '#DC2626'
+                },
+                fontFamily: {
+                    'display': ['Playfair Display', 'serif'],
+                    'body': ['Inter', 'sans-serif'],
+                    'accent': ['Crimson Text', 'serif']
+                }
+            }
+        }
+    };
+    </script>
+    <style>
+    /* Prevent navigation items from wrapping onto two lines, especially for German labels */
+        nav a,
+        nav button span {
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <!-- Home -->
+                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
+                        <!-- Courses dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-courses">Courses</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                                <a href="science.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                            </div>
+                        </div>
+                        <!-- Greek culture dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-culture">Greek Culture</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <!-- Modern Greek Culture nested dropdown -->
+                                <div class="relative group">
+                                    <button class="flex w-full justify-between items-center px-4 py-2 text-marble-gray hover:text-aegean-blue focus:outline-none">
+                                        <span data-translate="nav-modern" class="whitespace-nowrap">Modern Greek Culture</span>
+                                        <svg class="ml-2 w-4 h-4 transform rotate-0 group-hover:rotate-90 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M7.21 5.23a.75.75 0 01.02 1.06L4.563 10l2.667 3.71a.75.75 0 01-1.1 1.02l-3.667-4a.75.75 0 010-1.02l3.667-4a.75.75 0 011.06-.02z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="absolute left-full top-0 ml-1 mt-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                        <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                                        <a href="cuisines.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                                    </div>
+                                </div>
+                                <!-- Ancient Greek Culture link -->
+                                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                            </div>
+                        </div>
+                        <!-- Blogposts (active) -->
+                        <a href="blog.html" class="text-aegean-blue font-medium border-b-2 border-olive-gold px-1 py-2" data-translate="nav-blog">Blogposts</a>
+                        <!-- Meet Ioanna -->
+                        <a href="about.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+                        <!-- Book Lesson -->
+                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                    </div>
+                </div>
+                <!-- Mobile navigation toggle -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-marble-gray hover:text-aegean-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Home -->
+                <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
+                <!-- Courses and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-courses">Courses</span>
+                <a href="courses.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                <!-- Greek culture and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-culture">Greek Culture</span>
+                <span class="block px-4 py-2 text-marble-gray font-medium whitespace-nowrap" data-translate="nav-modern">Modern Greek Culture</span>
+                <a href="traditions.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                <!-- Blogposts (active) -->
+                <a href="blog.html" class="block px-3 py-2 text-aegean-blue font-medium" data-translate="nav-blog">Blogposts</a>
+                <!-- Meet Ioanna -->
+                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">Meet Ioanna</a>
+                <!-- Book Lesson -->
+                <a href="contact.html" class="block px-3 py-2 bg-olive-gold text-white rounded-lg hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- SEO canonical and robots tags -->
+    <link rel="canonical" href="https://learngreek.eu/blog.html">
+    <meta name="robots" content="index, follow">
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-6xl font-display font-bold text-aegean-blue mb-6" data-translate="blog-title">Blogposts</h1>
+                <p class="text-xl text-marble-gray max-w-3xl mx-auto" data-translate="blog-description">
+                    Dive into reflective essays, language tips and cultural notes penned by Ioanna. These articles enrich your Greek learning journey.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog List Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog post card -->
+                <a href="blog-post-1.html" class="block bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-transform transform hover:scale-105">
+                    <h3 class="text-xl font-display font-semibold text-aegean-blue mb-3" data-translate="blog1-title">“But Greek Is Such a Difficult Language…”</h3>
+                    <p class="text-sm text-marble-gray mb-4" data-translate="blog1-shortdesc">
+                        Many say Greek is one of the hardest languages to learn. Ioanna reflects on why that perception exists and how to find joy in the challenge.
+                    </p>
+                    <span class="text-olive-gold font-medium" data-translate="blog-read-more">Read More →</span>
+                </a>
+                <!-- Placeholder for future blog post cards -->
+                <!-- Additional blog posts can be added here following the same structure -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ensure language toggle is added if dynamic insertion fails -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.languageManager) {
+            if (!document.getElementById('language-toggle')) {
+                window.languageManager.createLanguageToggle();
+            }
+        }
+    });
+    </script>
+    <!-- Main JavaScript for nav interactions on small screens -->
+    <script src="main.js"></script>
+</body>
+</html>
