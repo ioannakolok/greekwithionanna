@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Greek Lesson - Ioanna</title>
+    <meta name="description" content="Book your Greek lesson with Ioanna. Flexible lesson options for all levels.">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Language Management -->
+    <script src="translations.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'aegean-blue': '#1E3A8A',
+                    'santorini-white': '#FEFEFE',
+                    'olive-gold': '#D97706',
+                    'marble-gray': '#6B7280',
+                    'terracotta': '#DC2626'
+                },
+                fontFamily: {
+                    'display': ['Playfair Display', 'serif'],
+                    'body': ['Inter', 'sans-serif'],
+                    'accent': ['Crimson Text', 'serif']
+                }
+            }
+        }
+    };
+    </script>
+</head>
+<body class="font-body text-gray-800 bg-santorini-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-display font-semibold text-aegean-blue">LearnGreek.eu</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <!-- Home -->
+                        <a href="index.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-home">Home</a>
+
+                        <!-- Courses dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-courses">Courses</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <a href="courses.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                                <a href="science.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+                            </div>
+                        </div>
+
+                        <!-- Greek culture dropdown -->
+                        <div class="relative group">
+                            <button class="inline-flex items-center text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2 focus:outline-none">
+                                <span data-translate="nav-culture">Greek Culture</span>
+                                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.586l3.71-3.396a.75.75 0 111.02 1.1l-4 3.667a.75.75 0 01-1.02 0l-4-3.667a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                <!-- Modern Greek Culture nested dropdown -->
+                                <div class="relative group">
+                                    <button class="flex w-full justify-between items-center px-4 py-2 text-marble-gray hover:text-aegean-blue focus:outline-none">
+                                        <span data-translate="nav-modern" class="whitespace-nowrap">Modern Greek Culture</span>
+                                        <svg class="ml-2 w-4 h-4 transform rotate-0 group-hover:rotate-90 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M7.21 5.23a.75.75 0 01.02 1.06L4.563 10l2.667 3.71a.75.75 0 01-1.1 1.02l-3.667-4a.75.75 0 010-1.02l3.667-4a.75.75 0 011.06-.02z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <div class="absolute left-full top-0 ml-1 mt-0 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden group-hover:block">
+                                        <a href="traditions.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                                        <a href="cuisines.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                                    </div>
+                                </div>
+                                <!-- Ancient Greek Culture link -->
+                                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+                            </div>
+                        </div>
+
+                        <!-- Gallery -->
+                        <a href="gallery.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-gallery">Gallery</a>
+
+                        <!-- Meet Ioanna -->
+                        <a href="about.html" class="text-marble-gray hover:text-aegean-blue transition-colors px-1 py-2" data-translate="nav-about">Meet Ioanna</a>
+
+                        <!-- Book Lesson (active) -->
+                        <a href="contact.html" class="bg-olive-gold text-white px-4 py-2 rounded-lg border-b-2 border-olive-gold hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-marble-gray hover:text-aegean-blue">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Home -->
+                <a href="index.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-home">Home</a>
+
+                <!-- Courses and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-courses">Courses</span>
+                <a href="courses.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-available">Available Courses</a>
+                <a href="science.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-science">Science-based Learning</a>
+
+                <!-- Greek culture and sub-items -->
+                <span class="block px-3 py-2 text-marble-gray font-medium" data-translate="nav-culture">Greek Culture</span>
+                <span class="block px-4 py-2 text-marble-gray font-medium whitespace-nowrap" data-translate="nav-modern">Modern Greek Culture</span>
+                <a href="traditions.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-traditions">Traditions</a>
+                <a href="cuisines.html" class="block px-6 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-cuisines">Greek Cuisine</a>
+                <a href="ancient.html" class="block px-4 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-ancient">Ancient Greek Culture</a>
+
+                <!-- Gallery -->
+                <a href="gallery.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-gallery">Gallery</a>
+
+                <!-- Meet Ioanna -->
+                <a href="about.html" class="block px-3 py-2 text-marble-gray hover:text-aegean-blue" data-translate="nav-about">Meet Ioanna</a>
+
+                <!-- Book Lesson (active) -->
+                <a href="contact.html" class="block px-3 py-2 bg-olive-gold text-white rounded-lg border-b-2 border-olive-gold hover:bg-orange-600 transition-colors" data-translate="nav-contact">Book Lesson</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-display font-bold text-aegean-blue mb-6" data-translate="contact-title">Book Your Greek Lesson</h1>
+                <p class="text-xl text-marble-gray max-w-3xl mx-auto mb-8" data-translate="contact-description">
+                    Ready to start your Greek learning journey? Fill out the form below and Ioanna will be in touch shortly.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Ensure language toggle is added even if main.js is not loaded -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.languageManager) {
+            if (!document.getElementById('language-toggle')) {
+                window.languageManager.createLanguageToggle();
+            }
+        }
+    });
+    </script>
+
+    <!-- Contact Section with Google Calendar embed -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <!-- Basic contact information form -->
+            <form id="contact-form" class="bg-gray-50 rounded-2xl p-8 md:p-12 shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="first-name" class="block text-sm font-medium text-aegean-blue mb-2" data-translate="form-first-name">First Name *</label>
+                        <input type="text" id="first-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="last-name" class="block text-sm font-medium text-aegean-blue mb-2" data-translate="form-last-name">Last Name *</label>
+                        <input type="text" id="last-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-aegean-blue mb-2" data-translate="form-email">Email *</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-aegean-blue mb-2" data-translate="form-phone">Phone (Optional)</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="greek-level" class="block text-sm font-medium text-aegean-blue mb-2" data-translate="form-greek-level">Current Greek Level</label>
+                        <select id="greek-level" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent">
+                            <option value="" disabled selected>Select your level</option>
+                            <option value="complete-beginner" data-translate="level-complete-beginner">Complete Beginner (Never studied Greek)</option>
+                            <option value="beginner" data-translate="level-beginner">Beginner (A1) - Know some basics</option>
+                            <option value="elementary" data-translate="level-elementary">Elementary (A2) - Can have simple conversations</option>
+                            <option value="intermediate" data-translate="level-intermediate">Intermediate (B1) - Can discuss familiar topics</option>
+                            <option value="upper-intermediate" data-translate="level-upper-intermediate">Upper Intermediate (B2) - Can handle complex situations</option>
+                            <option value="advanced" data-translate="level-advanced">Advanced (C1) - Near-fluent speaker</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="lesson-type" class="block text-sm font-medium text-aegean-blue mb-2">Lesson Type</label>
+                        <select id="lesson-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent">
+                            <option value="consultation" data-translate="lesson-consultation">Free Consultation</option>
+                            <option value="regular" data-translate="lesson-regular">Regular Lesson (60 min)</option>
+                            <option value="intensive" data-translate="lesson-intensive">Intensive Session (90 min)</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="notes" class="block text-sm font-medium text-aegean-blue mb-2" data-translate="form-notes">Additional Notes</label>
+                        <textarea id="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-olive-gold focus:border-transparent" placeholder="Any specific topics you'd like to focus on?"></textarea>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button type="submit" id="submit-contact" class="bg-olive-gold text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors" data-translate="btn-book-lesson">
+                        Send Inquiry
+                    </button>
+                </div>
+            </form>
+
+            <!-- Google Calendar embed for booking -->
+            <div class="bg-gray-50 rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 border-b border-gray-100">
+                    <h2 class="text-2xl font-display font-bold text-aegean-blue mb-2" data-translate="calendar-section-title">Schedule Your Lesson</h2>
+                    <p class="text-marble-gray" data-translate="calendar-section-description">Use the calendar below to book a convenient time slot with Ioanna.</p>
+                </div>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3iSnKATNQ03CIdDcqIUXxwENIALExJO6hXUGj7LYGJbSKAv0qa-FxdiGotJGHWrmmetR2_lsKW?gv=true" style="border: 0" class="w-full" height="600" frameborder="0" loading="lazy"></iframe>
+                <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternate Contact -->
+    <section class="py-12 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg text-marble-gray">Prefer to email directly? Reach out to Ioanna at 
+                <a href="mailto:contact@learngreek.eu" class="text-olive-gold underline">contact@learngreek.eu</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-aegean-blue text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">LearnGreek.eu</h3>
+                    <p class="text-sm text-gray-300 mb-4" data-translate="footer-tagline">
+                        Master Greek with native expert Ioanna
+                    </p>
+                    <p class="text-sm text-gray-400">Berlin, Germany (Online)</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white" data-translate="nav-home">Home</a></li>
+                        <li><a href="courses.html" class="text-gray-300 hover:text-white" data-translate="nav-courses">Courses</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white" data-translate="nav-about">About</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white" data-translate="nav-contact">Book Lesson</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <p class="text-sm text-gray-300">Email: <a href="mailto:contact@learngreek.eu" class="text-olive-gold underline">contact@learngreek.eu</a></p>
+                    <p class="text-sm text-gray-300">Timezone: Europe/Berlin</p>
+                    <p class="text-sm text-gray-300">Free 15 min consultation available</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Stay Connected</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.33 7.77a6.89 6.89 0 0 1-2.36.65 3.86 3.86 0 0 0 1.57-2.13 7.02 7.02 0 0 1-2.5.98 3.6 3.6 0 0 0-6.24 3.28A10.29 10.29 0 0 1 3.71 6.15a3.58 3.58 0 0 0-.49 1.81 3.6 3.6 0 0 0 1.6 3 3.57 3.57 0 0 1-1.64-.46v.05a3.6 3.6 0 0 0 2.89 3.53 3.66 3.66 0 0 1-.94.13c-.23 0-.46-.03-.67-.07a3.61 3.61 0 0 0 3.35 2.55 7.29 7.29 0 0 1-4.53 1.58c-.3 0-.6-.02-.9-.05a10.36 10.36 0 0 0 5.69 1.73c6.83 0 10.55-5.67 10.55-10.58 0-.16 0-.31-.01-.46A7.48 7.48 0 0 0 21 7.68a7.32 7.32 0 0 1-2.14.59 3.63 3.63 0 0 0 1.6-2.01"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.75 17.75h-1.5v-7.5h1.5v7.5zM9 8.25A.75.75 0 1 1 9 6.75a.75.75 0 0 1 0 1.5zm9 9.5h-1.5v-3.75c0-1-.35-1.5-1.25-1.5-.67 0-1.2.45-1.4.9-.07.16-.09.39-.09.61v3.74h-1.5s.02-6.07 0-6.75h1.5V10c.2-.3.57-.73 1.35-.73 1 0 1.75.66 1.75 2.09v6.39z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-sm text-gray-400" data-translate="footer-copyright">
+                    © 2024 LearnGreek.eu. All rights reserved. | Created with ❤️ for Greek language learners worldwide.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom script for contact form -->
+    <script>
+    // Mobile menu toggler
+    document.addEventListener('DOMContentLoaded', function() {
+        var mobileBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Immediately return to allow the custom onsubmit handler to handle form submission
+        return;
+        var firstName = document.getElementById('first-name').value.trim();
+        var lastName = document.getElementById('last-name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var level = document.getElementById('greek-level').value;
+        var lessonType = document.getElementById('lesson-type').value;
+        var notes = document.getElementById('notes').value.trim();
+        var subject = encodeURIComponent('Greek Lesson Inquiry');
+        var body = encodeURIComponent(
+            'Name: ' + firstName + ' ' + lastName + '
+' +
+            'Email: ' + email + '
+' +
+            'Phone: ' + phone + '
+' +
+            'Greek Level: ' + level + '
+' +
+            'Lesson Type: ' + lessonType + '
+' +
+            'Notes: ' + notes
+        );
+        var mailtoLink = 'mailto:contact@learngreek.eu?subject=' + subject + '&body=' + body;
+        window.location.href = mailtoLink;
+    });
+    </script>
+    <!-- Include main.js after custom script for nav, translation, etc. -->
+    <script src="main.js"></script>
+    <!-- Override contact form submission to send to correct email and include preferred date/time -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.onsubmit = function(event) {
+                event.preventDefault();
+                var firstName = document.getElementById('first-name').value.trim();
+                var lastName = document.getElementById('last-name').value.trim();
+                var emailVal = document.getElementById('email').value.trim();
+                var phoneVal = document.getElementById('phone').value.trim();
+                var level = document.getElementById('greek-level').value;
+                var lessonType = document.getElementById('lesson-type').value;
+                var notesVal = document.getElementById('notes').value.trim();
+                var subject = encodeURIComponent('Greek Lesson Inquiry');
+                var lines = [];
+                lines.push('Name: ' + firstName + ' ' + lastName);
+                lines.push('Email: ' + emailVal);
+                lines.push('Phone: ' + phoneVal);
+                lines.push('Greek Level: ' + level);
+                lines.push('Lesson Type: ' + lessonType);
+                lines.push('Notes: ' + notesVal);
+                var body = encodeURIComponent(lines.join('\n'));
+                window.location.href = 'mailto:contact@learngreek.eu?subject=' + subject + '&body=' + body;
+            };
+        }
+    });
+    </script>
+    <!-- Availability management script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        // Show the admin panel only when the URL contains ?admin=1
+        const adminPanel = document.getElementById('admin-panel');
+        if (adminPanel && params.get('admin') === '1') {
+            adminPanel.classList.remove('hidden');
+        }
+        // Load previously blocked slots from localStorage
+        let unavailableSlots = {};
+        try {
+            const stored = localStorage.getItem('unavailableSlots');
+            if (stored) {
+                unavailableSlots = JSON.parse(stored);
+            }
+        } catch (e) {
+            unavailableSlots = {};
+        }
+        function saveSlots() {
+            localStorage.setItem('unavailableSlots', JSON.stringify(unavailableSlots));
+        }
+        // Handle the Block Range button
+        const blockBtn = document.getElementById('block-range-btn');
+        if (blockBtn) {
+            blockBtn.addEventListener('click', function() {
+                const startVal = document.getElementById('block-start-date').value;
+                const endVal = document.getElementById('block-end-date').value;
+                const range = document.getElementById('block-time-range').value;
+                if (!startVal || !endVal) return;
+                const startDate = new Date(startVal);
+                const endDate = new Date(endVal);
+                // Determine which times to block based on the selected range
+                const times = range === 'morning'
+                    ? ['09:00','10:00','11:00','12:00']
+                    : (range === 'afternoon'
+                        ? ['13:00','14:00','15:00','16:00','17:00']
+                        : ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00']);
+                for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+                    const iso = d.toISOString().split('T')[0];
+                    times.forEach(t => {
+                        unavailableSlots[iso + '|' + t] = true;
+                    });
+                }
+                saveSlots();
+                alert('Selected range blocked successfully!');
+            });
+        }
+        // Handle the Clear All Blocks button
+        const clearBtn = document.getElementById('clear-all-btn');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function() {
+                unavailableSlots = {};
+                saveSlots();
+                alert('All blocks cleared!');
+            });
+        }
+    });
+    </script>
+</body>
+</html>
