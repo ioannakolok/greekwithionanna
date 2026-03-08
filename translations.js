@@ -1122,52 +1122,28 @@ class LanguageManager {
                 }
             });
 
-            // Also create a language toggle for the mobile menu so visitors on phones and tablets can switch languages.
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu && !mobileMenu.querySelector('#language-toggle-mobile')) {
-                // Wrapper for positioning relative and spacing
-                const mobileWrapper = document.createElement('div');
-                mobileWrapper.className = 'px-3 py-2 relative';
-                // Build the toggle and dropdown similar to desktop
-                mobileWrapper.innerHTML = `
-                    <button id="language-toggle-mobile" class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 text-aegean-blue font-medium px-3 py-2 rounded-lg transition-colors w-full justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                        </svg>
-                        <span>${this.currentLanguage === 'de' ? 'DE' : 'EN'}</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div id="language-dropdown-mobile" class="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden z-50">
-                        <button class="language-option-mobile w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors font-medium" data-lang="en">🇺🇸 English</button>
-                        <button class="language-option-mobile w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors font-medium" data-lang="de">🇩🇪 Deutsch</button>
-                    </div>
-                `;
-                mobileMenu.appendChild(mobileWrapper);
-
-                // Add event listeners for mobile toggle
-                mobileWrapper.querySelector('#language-toggle-mobile').addEventListener('click', () => {
-                    mobileWrapper.querySelector('#language-dropdown-mobile').classList.toggle('hidden');
+            // Set up listeners for the static inline mobile language buttons
+            // (the buttons are now embedded in each page's HTML as .mobile-lang-btn elements)
+            document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const selectedLang = e.currentTarget.dataset.lang;
+                    this.setLanguage(selectedLang);
                 });
+            });
 
-                mobileWrapper.querySelectorAll('.language-option-mobile').forEach(option => {
-                    option.addEventListener('click', (e) => {
-                        const selectedLang = e.target.dataset.lang;
-                        this.setLanguage(selectedLang);
-                        mobileWrapper.querySelector('#language-dropdown-mobile').classList.add('hidden');
-                    });
-                });
-
-                // Close the dropdown when clicking outside on mobile
-                document.addEventListener('click', (e) => {
-                    if (!e.target.closest('#language-toggle-mobile') && !e.target.closest('#language-dropdown-mobile')) {
-                        const dropdown = mobileWrapper.querySelector('#language-dropdown-mobile');
-                        if (dropdown) dropdown.classList.add('hidden');
-                    }
-                });
-            }
+            // Sync initial active state
+            this._syncMobileLangButtons();
         }
+    }
+
+    // Sync active class and indicator badge for mobile language buttons
+    _syncMobileLangButtons() {
+        const lang = this.currentLanguage;
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+        const indicator = document.getElementById('mobile-lang-indicator');
+        if (indicator) indicator.textContent = lang.toUpperCase();
     }
 
     // Set language and update all content
@@ -1176,12 +1152,18 @@ class LanguageManager {
         localStorage.setItem('userLanguage', language);
         this.updateAllTexts();
         this.addLanguageAttribute();
-        
-        // Update toggle button text
+
+        // Update desktop toggle button text
         const toggleBtn = document.getElementById('language-toggle');
         if (toggleBtn) {
             toggleBtn.querySelector('span').textContent = language === 'de' ? 'DE' : 'EN';
         }
+
+        // Update mobile language buttons and indicator badge
+        this._syncMobileLangButtons();
+
+        // Dispatch custom event so other scripts can react (e.g., blog-post-1.html)
+        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { language } }));
     }
 
     // Add language attribute to HTML element
@@ -1245,7 +1227,7 @@ class LanguageManager {
 }
 
 // Initialize language manager when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     window.languageManager = new LanguageManager();
 });
 

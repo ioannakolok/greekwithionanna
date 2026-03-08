@@ -1,7 +1,7 @@
 // Main JavaScript for Greek Learning Platform
 // Interactive components and animations
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Wait for language manager to be initialized
     if (window.languageManager) {
         // Initialize all components
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeVideoGallery();
         initializeCounters();
         initializeScrollAnimations();
-        
+
         // Re-initialize components after language is set
         setTimeout(() => {
             initializeQuiz(); // Re-initialize quiz with correct language
@@ -33,35 +33,59 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeNavigation() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    function openMobileMenu() {
+        mobileMenu.classList.add('open');
+        if (iconOpen) iconOpen.classList.add('hidden');
+        if (iconClose) iconClose.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
+        // Toggle on hamburger press
+        mobileMenuBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+        });
+
+        // Auto-close when a nav link inside the menu is tapped
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close when user taps outside the menu or the hamburger button
+        document.addEventListener('click', function (e) {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
         });
     }
 
-    // Ensure language toggle exists. If the translations script hasn't added it yet,
-    // call the language manager to create the toggle manually. This prevents
-    // missing toggles on pages where the dynamic insertion fails.
+    // Ensure the desktop language toggle is created if not yet present.
     if (typeof window !== 'undefined' && window.languageManager) {
-        // Only add a new toggle if one is not already present
         if (!document.getElementById('language-toggle')) {
             window.languageManager.createLanguageToggle();
         }
     }
 
     // Toggle desktop dropdown menus on click instead of relying solely on hover.
-    // This ensures submenus stay open long enough for users to click items.
     const navParents = document.querySelectorAll('nav .relative.group');
     navParents.forEach(parent => {
         const button = parent.querySelector('button');
         const dropdown = parent.querySelector('.absolute');
         if (button && dropdown) {
-            button.addEventListener('click', function(e) {
-                // Prevent default link behaviour and stop propagation to avoid unwanted navigation
+            button.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                // Hide other dropdowns before toggling this one
                 navParents.forEach(otherParent => {
                     if (otherParent !== parent) {
                         const otherDropdown = otherParent.querySelector('.absolute');
@@ -73,7 +97,7 @@ function initializeNavigation() {
         }
     });
     // Close dropdowns when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         navParents.forEach(parent => {
             if (!parent.contains(e.target)) {
                 const dropdown = parent.querySelector('.absolute');
@@ -87,7 +111,7 @@ function initializeNavigation() {
 function initializeHeroAnimations() {
     // Get current language for hero text
     const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
-    
+
     const heroTexts = {
         'en': [
             'Master Greek with Ioanna',
@@ -102,7 +126,7 @@ function initializeHeroAnimations() {
             'Authentisches Griechenland erleben'
         ]
     };
-    
+
     // Typewriter effect for hero heading
     const typed = new Typed('#typed-heading', {
         strings: heroTexts[currentLang] || heroTexts['en'],
@@ -119,28 +143,28 @@ function initializeHeroAnimations() {
 function initializeQuiz() {
     // Get current language
     const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
-    
+
     const quizData = [
         {
-            question: currentLang === 'de' ? 
+            question: currentLang === 'de' ?
                 'Was bedeutet "Γεια σου" (Yia sou) auf Deutsch?' :
                 'What does "Γεια σου" (Yia sou) mean in English?',
             options: [
-                { 
-                    text: currentLang === 'de' ? 'Hallo/Auf Wiedersehen (informell)' : 'Hello/Goodbye (informal)', 
-                    correct: true 
+                {
+                    text: currentLang === 'de' ? 'Hallo/Auf Wiedersehen (informell)' : 'Hello/Goodbye (informal)',
+                    correct: true
                 },
-                { 
-                    text: currentLang === 'de' ? 'Vielen Dank' : 'Thank you very much', 
-                    correct: false 
+                {
+                    text: currentLang === 'de' ? 'Vielen Dank' : 'Thank you very much',
+                    correct: false
                 },
-                { 
-                    text: currentLang === 'de' ? 'Wie geht es dir?' : 'How are you?', 
-                    correct: false 
+                {
+                    text: currentLang === 'de' ? 'Wie geht es dir?' : 'How are you?',
+                    correct: false
                 },
-                { 
-                    text: currentLang === 'de' ? 'Guten Morgen' : 'Good morning', 
-                    correct: false 
+                {
+                    text: currentLang === 'de' ? 'Guten Morgen' : 'Good morning',
+                    correct: false
                 }
             ],
             explanation: currentLang === 'de' ?
@@ -148,7 +172,7 @@ function initializeQuiz() {
                 '"Γεια σου" is indeed the informal way to say both hello and goodbye in Greek. It\'s one of the most versatile greetings you\'ll use in daily conversations.'
         },
         {
-            question: currentLang === 'de' ? 
+            question: currentLang === 'de' ?
                 'Welcher griechische Buchstabe klingt wie "th" in "this"?' :
                 'Which Greek letter sounds like \'th\' in \'this\'?',
             options: [
@@ -162,25 +186,25 @@ function initializeQuiz() {
                 'Δ (Delta) makes the \'th\' sound as in \'this\', while Θ (Theta) makes the \'th\' sound as in \'think\'. This is an important distinction in Greek pronunciation.'
         },
         {
-            question: currentLang === 'de' ? 
+            question: currentLang === 'de' ?
                 'Was ist der traditionelle griechische Gruß für "Guten Morgen"?' :
                 'What is the traditional Greek greeting for \'Good morning\'?',
             options: [
-                { 
-                    text: "Καλημέρα (Kalimera)", 
-                    correct: true 
+                {
+                    text: "Καλημέρα (Kalimera)",
+                    correct: true
                 },
-                { 
-                    text: "Καλησπέρα (Kalispera)", 
-                    correct: false 
+                {
+                    text: "Καλησπέρα (Kalispera)",
+                    correct: false
                 },
-                { 
-                    text: "Καληνύχτα (Kalinichta)", 
-                    correct: false 
+                {
+                    text: "Καληνύχτα (Kalinichta)",
+                    correct: false
                 },
-                { 
-                    text: "Γεια σας (Yia sas)", 
-                    correct: false 
+                {
+                    text: "Γεια σας (Yia sas)",
+                    correct: false
                 }
             ],
             explanation: currentLang === 'de' ?
@@ -188,25 +212,25 @@ function initializeQuiz() {
                 'Καλημέρα (Kalimera) is used for \'Good morning\' and is typically used until around noon. Καλησπέρα (Kalispera) is used for \'Good evening\'.'
         },
         {
-            question: currentLang === 'de' ? 
+            question: currentLang === 'de' ?
                 'Was schützt das "böse Auge" (μάτι) in der griechischen Kultur?' :
                 'In Greek culture, what does the \'evil eye\' (μάτι) protect against?',
             options: [
-                { 
-                    text: currentLang === 'de' ? 'Schlechtes Glück und negative Energie' : 'Bad luck and negative energy', 
-                    correct: true 
+                {
+                    text: currentLang === 'de' ? 'Schlechtes Glück und negative Energie' : 'Bad luck and negative energy',
+                    correct: true
                 },
-                { 
-                    text: currentLang === 'de' ? 'Nur körperliche Krankheit' : 'Physical illness only', 
-                    correct: false 
+                {
+                    text: currentLang === 'de' ? 'Nur körperliche Krankheit' : 'Physical illness only',
+                    correct: false
                 },
-                { 
-                    text: currentLang === 'de' ? 'Finanzielle Probleme' : 'Financial problems', 
-                    correct: false 
+                {
+                    text: currentLang === 'de' ? 'Finanzielle Probleme' : 'Financial problems',
+                    correct: false
                 },
-                { 
-                    text: currentLang === 'de' ? 'Beziehungsprobleme' : 'Relationship issues', 
-                    correct: false 
+                {
+                    text: currentLang === 'de' ? 'Beziehungsprobleme' : 'Relationship issues',
+                    correct: false
                 }
             ],
             explanation: currentLang === 'de' ?
@@ -214,25 +238,25 @@ function initializeQuiz() {
                 'The \'evil eye\' (μάτι) is believed to protect against bad luck, negative energy, and envious glances from others. It\'s a deeply rooted cultural tradition.'
         },
         {
-            question: currentLang === 'de' ? 
+            question: currentLang === 'de' ?
                 'Welche griechische Insel ist berühmt für ihre weißen Gebäude und blauen Kuppeln?' :
                 'Which Greek island is famous for its white buildings and blue domes?',
             options: [
-                { 
-                    text: "Santorini", 
-                    correct: true 
+                {
+                    text: "Santorini",
+                    correct: true
                 },
-                { 
-                    text: "Mykonos", 
-                    correct: false 
+                {
+                    text: "Mykonos",
+                    correct: false
                 },
-                { 
-                    text: "Crete", 
-                    correct: false 
+                {
+                    text: "Crete",
+                    correct: false
                 },
-                { 
-                    text: "Rhodes", 
-                    correct: false 
+                {
+                    text: "Rhodes",
+                    correct: false
                 }
             ],
             explanation: currentLang === 'de' ?
@@ -257,41 +281,41 @@ function initializeQuiz() {
     function displayQuestion() {
         const question = quizData[currentQuestion];
         questionElement.textContent = question.question;
-        
+
         // Update progress
         const progress = ((currentQuestion + 1) / quizData.length) * 100;
         progressBar.style.width = progress + '%';
         progressText.textContent = `${currentQuestion + 1} of ${quizData.length}`;
-        
+
         // Clear options
         optionsContainer.innerHTML = '';
-        
+
         // Create options
         question.options.forEach((option, index) => {
             const optionElement = document.createElement('div');
             optionElement.className = 'quiz-option border-2 border-gray-200 rounded-lg p-4 hover:border-aegean-blue cursor-pointer';
             optionElement.innerHTML = `<span class="font-medium">${option.text}</span>`;
             optionElement.dataset.correct = option.correct;
-            
+
             optionElement.addEventListener('click', () => selectAnswer(optionElement, option.correct));
             optionsContainer.appendChild(optionElement);
         });
-        
+
         answered = false;
     }
 
     function selectAnswer(selectedElement, isCorrect) {
         if (answered) return;
-        
+
         answered = true;
-        
+
         // Remove hover effects from all options
         const allOptions = optionsContainer.querySelectorAll('.quiz-option');
         allOptions.forEach(option => {
             option.style.pointerEvents = 'none';
             option.classList.remove('hover:border-aegean-blue');
         });
-        
+
         // Mark selected answer
         if (isCorrect) {
             selectedElement.classList.add('correct');
@@ -305,7 +329,7 @@ function initializeQuiz() {
                 }
             });
         }
-        
+
         // Show feedback
         showFeedback(isCorrect);
     }
@@ -314,12 +338,12 @@ function initializeQuiz() {
         const question = quizData[currentQuestion];
         const feedbackText = document.getElementById('feedback-text');
         const feedbackTitle = feedbackElement.querySelector('h4');
-        
+
         // Get current language for feedback messages
         const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
-        
+
         feedbackText.textContent = question.explanation;
-        
+
         // Set correct feedback title based on whether answer was correct
         if (isCorrect) {
             feedbackTitle.textContent = currentLang === 'de' ? 'Ausgezeichnet!' : 'Excellent!';
@@ -328,9 +352,9 @@ function initializeQuiz() {
             feedbackTitle.textContent = currentLang === 'de' ? 'Fast richtig!' : 'Close!';
             feedbackElement.className = 'mt-8 p-6 rounded-lg bg-orange-50 border border-orange-200';
         }
-        
+
         feedbackElement.classList.remove('hidden');
-        
+
         // Animate feedback appearance
         anime({
             targets: feedbackElement,
@@ -343,12 +367,12 @@ function initializeQuiz() {
 
     function nextQuestion() {
         currentQuestion++;
-        
+
         if (currentQuestion < quizData.length) {
             // Hide feedback and show next question
             feedbackElement.classList.add('hidden');
             displayQuestion();
-            
+
             // Animate question transition
             anime({
                 targets: '#quiz-question-container',
@@ -369,21 +393,21 @@ function initializeQuiz() {
         const progressCircle = document.getElementById('progress-circle');
         const resultsTitle = resultsElement.querySelector('h3');
         const resultsDescription = resultsElement.querySelector('p');
-        
+
         // Get current language for results messages
         const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
-        
+
         // Update results text based on language
         resultsTitle.textContent = currentLang === 'de' ? 'Großartiger Start!' : 'Great Start!';
-        resultsDescription.textContent = currentLang === 'de' ? 
+        resultsDescription.textContent = currentLang === 'de' ?
             'Sie zeigen ausgezeichnetes Potenzial zum Lernen von Griechisch! Ioanna kann Ihnen helfen, auf diesem Fundament aufzubauen.' :
             'You\'re showing excellent potential for learning Greek! Ioanna can help you build on this foundation.';
-        
+
         // Hide quiz container and show results
         document.getElementById('quiz-question-container').style.display = 'none';
         feedbackElement.style.display = 'none';
         resultsElement.classList.remove('hidden');
-        
+
         // Animate results
         anime({
             targets: resultsElement,
@@ -392,22 +416,22 @@ function initializeQuiz() {
             duration: 800,
             easing: 'easeOutCubic'
         });
-        
+
         // Animate score counting
         anime({
             targets: { count: 0 },
             count: percentage,
             duration: 2000,
             easing: 'easeOutCubic',
-            update: function(anim) {
+            update: function (anim) {
                 scoreDisplay.textContent = Math.round(anim.animatables[0].target.count) + '%';
             }
         });
-        
+
         // Animate progress circle
         const circumference = 2 * Math.PI * 50;
         const offset = circumference - (percentage / 100) * circumference;
-        
+
         anime({
             targets: progressCircle,
             strokeDashoffset: [circumference, offset],
@@ -429,7 +453,7 @@ function initializeQuiz() {
 function initializeVideoGallery() {
     // Get current language
     const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
-    
+
     const videoData = [
         {
             id: 1,
@@ -514,8 +538,8 @@ function initializeVideoGallery() {
     let currentFilter = 'all';
 
     function renderVideos() {
-        const filteredVideos = currentFilter === 'all' 
-            ? videoData 
+        const filteredVideos = currentFilter === 'all'
+            ? videoData
             : videoData.filter(video => video.category === currentFilter);
 
         videoGrid.innerHTML = '';
@@ -569,7 +593,7 @@ function initializeVideoGallery() {
     function openVideoModal(video) {
         modalTitle.textContent = video.title;
         modal.classList.remove('hidden');
-        
+
         // Animate modal appearance
         anime({
             targets: modal,
@@ -599,10 +623,10 @@ function initializeVideoGallery() {
                 btn.classList.remove('active', 'bg-olive-gold', 'text-white');
                 btn.classList.add('bg-white', 'text-marble-gray');
             });
-            
+
             button.classList.add('active', 'bg-olive-gold', 'text-white');
             button.classList.remove('bg-white', 'text-marble-gray');
-            
+
             currentFilter = button.dataset.filter;
             renderVideos();
         });
@@ -612,7 +636,7 @@ function initializeVideoGallery() {
     if (closeModal) {
         closeModal.addEventListener('click', closeVideoModal);
     }
-    
+
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeVideoModal();
@@ -641,14 +665,14 @@ function getCategoryName(category, language) {
             'all': 'Alle Videos'
         }
     };
-    
+
     return categoryNames[language][category] || category;
 }
 
 // Animated Counters
 function initializeCounters() {
     const counters = document.querySelectorAll('[data-count]');
-    
+
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px 0px -100px 0px'
@@ -659,17 +683,17 @@ function initializeCounters() {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = parseInt(counter.dataset.count);
-                
+
                 anime({
                     targets: { count: 0 },
                     count: target,
                     duration: 2000,
                     easing: 'easeOutCubic',
-                    update: function(anim) {
+                    update: function (anim) {
                         counter.textContent = Math.round(anim.animatables[0].target.count);
                     }
                 });
-                
+
                 observer.unobserve(counter);
             }
         });
@@ -684,7 +708,7 @@ function initializeCounters() {
 function initializeScrollAnimations() {
     // Animate elements on scroll
     const animateElements = document.querySelectorAll('.card-hover, .video-thumbnail');
-    
+
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -701,7 +725,7 @@ function initializeScrollAnimations() {
                     delay: index * 100,
                     easing: 'easeOutCubic'
                 });
-                
+
                 observer.unobserve(entry.target);
             }
         });
@@ -753,7 +777,7 @@ function showError(element, message) {
 // Performance optimization: Lazy load images
 function initializeLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

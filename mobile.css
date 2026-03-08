@@ -1,0 +1,105 @@
+/* ============================================================
+   LearnGreek.eu – Mobile Navigation Styles
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Mobile menu slide-down animation
+   The menu starts collapsed (max-height 0) and expands when
+   the .open class is toggled on by JavaScript.
+   ---------------------------------------------------------- */
+#mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease;
+    opacity: 0;
+}
+
+#mobile-menu.open {
+    max-height: 720px;
+    opacity: 1;
+}
+
+/* ----------------------------------------------------------
+   Hamburger icon transition
+   ---------------------------------------------------------- */
+#mobile-menu-btn svg {
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* ----------------------------------------------------------
+   Mobile language switcher bar
+   Rendered as two full-width adjacent buttons at the top
+   of the mobile menu – never clips, always reachable.
+   ---------------------------------------------------------- */
+.mobile-lang-switch {
+    display: flex;
+    gap: 8px;
+    padding: 12px 12px 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+}
+
+.mobile-lang-btn {
+    flex: 1;
+    padding: 9px 8px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: #f3f4f6;
+    color: #6B7280;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    font-family: inherit;
+    line-height: 1.2;
+}
+
+.mobile-lang-btn.active {
+    background: #1E3A8A;
+    color: #ffffff;
+    border-color: #1E3A8A;
+}
+
+.mobile-lang-btn:not(.active):hover {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+/* ----------------------------------------------------------
+   Mobile nav link tap target – slightly larger for fingers
+   ---------------------------------------------------------- */
+#mobile-menu a,
+#mobile-menu span.block {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+/* ----------------------------------------------------------
+   Mobile language indicator badge (shown in the nav bar
+   next to the hamburger icon so the current language is
+   always visible even when the menu is closed)
+   ---------------------------------------------------------- */
+#mobile-lang-indicator {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: #EFF6FF;
+    color: #1E3A8A;
+    border: 1px solid #BFDBFE;
+    line-height: 1;
+    user-select: none;
+}
+
+/* ----------------------------------------------------------
+   Responsive image scaling
+   ---------------------------------------------------------- */
+@media (max-width: 640px) {
+    .hero-overlay img {
+        object-position: center top;
+    }
+}
