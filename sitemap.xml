@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://learngreek.eu/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/index.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/index.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About / Ioanna -->
+  <url>
+    <loc>https://learngreek.eu/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/about.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/about.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Courses -->
+  <url>
+    <loc>https://learngreek.eu/courses.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/courses.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/courses.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/courses.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Contact / Book Lesson -->
+  <url>
+    <loc>https://learngreek.eu/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/contact.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://learngreek.eu/blog.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/blog.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/blog.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post 1 -->
+  <url>
+    <loc>https://learngreek.eu/blog-post-1.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/blog-post-1.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/blog-post-1.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/blog-post-1.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Science-based Learning -->
+  <url>
+    <loc>https://learngreek.eu/science.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/science.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/science.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/science.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Ancient Greek Culture -->
+  <url>
+    <loc>https://learngreek.eu/ancient.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/ancient.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/ancient.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/ancient.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Greek Traditions -->
+  <url>
+    <loc>https://learngreek.eu/traditions.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/traditions.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/traditions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/traditions.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Greek Cuisine -->
+  <url>
+    <loc>https://learngreek.eu/cuisines.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/cuisines.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/cuisines.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/cuisines.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://learngreek.eu/gallery.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://learngreek.eu/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://learngreek.eu/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://learngreek.eu/gallery.html"/>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://learngreek.eu/sitemap.xml
+
+# Disallow admin / build artefacts
+Disallow: /node_modules/
+Disallow: /.git/
