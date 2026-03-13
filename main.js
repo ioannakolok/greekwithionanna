@@ -451,6 +451,10 @@ function initializeQuiz() {
 
 // Video Gallery System
 function initializeVideoGallery() {
+    // Guard: exit if the video section was removed from this page
+    const videoGrid = document.getElementById('video-grid');
+    const modal = document.getElementById('video-modal');
+    if (!videoGrid) return;
     // Get current language
     const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
 
@@ -529,9 +533,7 @@ function initializeVideoGallery() {
         }
     ];
 
-    const videoGrid = document.getElementById('video-grid');
     const filterButtons = document.querySelectorAll('.video-filter');
-    const modal = document.getElementById('video-modal');
     const modalTitle = document.getElementById('modal-title');
     const closeModal = document.getElementById('close-modal');
 
@@ -669,37 +671,47 @@ function getCategoryName(category, language) {
     return categoryNames[language][category] || category;
 }
 
-// Animated Counters
+// Animated Counters — pure requestAnimationFrame, no anime.js dependency
 function initializeCounters() {
     const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
 
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px 0px -100px 0px'
-    };
+    // easeOutQuart: fast start, smooth deceleration
+    function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+    }
+
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 1800; // ms
+        let startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            el.textContent = Math.round(easeOutQuart(progress) * target);
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                el.textContent = target; // ensure exact final value
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.dataset.count);
-
-                anime({
-                    targets: { count: 0 },
-                    count: target,
-                    duration: 2000,
-                    easing: 'easeOutCubic',
-                    update: function (anim) {
-                        counter.textContent = Math.round(anim.animatables[0].target.count);
-                    }
-                });
-
-                observer.unobserve(counter);
+                animateCounter(entry.target);
+                observer.unobserve(entry.target); // run only once
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.4 });
 
     counters.forEach(counter => {
+        counter.textContent = '0'; // reset to 0 on init
         observer.observe(counter);
     });
 }
