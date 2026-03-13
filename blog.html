@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -303,11 +303,11 @@
                             &Beta;&beta; &Gamma;&gamma;</span>
                     </div>
                     <p class="text-xs text-marble-gray mb-2 font-medium uppercase tracking-wider">11 March 2026</p>
-                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2">
+                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2 blog-transatable">
                         <span data-lang="en">The Greek Alphabet: History, Letters, and Sounds</span>
                         <span data-lang="de">Das griechische Alphabet: Geschichte, Buchstaben und Laute</span>
                     </h3>
-                    <p class="text-base text-marble-gray mb-4">
+                    <p class="text-base text-marble-gray mb-4 blog-transatable">
                         <span data-lang="en">Discover the history of the Greek alphabet and learn all 24 letters with
                             their sounds and example words.</span>
                         <span data-lang="de">Entdecke die Geschichte des griechischen Alphabets und lerne alle 24
@@ -327,11 +327,11 @@
                             &rarr; af/av<br>&mu;&pi; &rarr; b</span>
                     </div>
                     <p class="text-xs text-marble-gray mb-2 font-medium uppercase tracking-wider">11 March 2026</p>
-                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2">
+                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2 blog-transatable">
                         <span data-lang="en">Greek Pronunciation Made Easy: Letter Combinations</span>
                         <span data-lang="de">Griechische Aussprache leicht gemacht: Buchstabenkombinationen</span>
                     </h3>
-                    <p class="text-base text-marble-gray mb-4">
+                    <p class="text-base text-marble-gray mb-4 blog-transatable">
                         <span data-lang="en">Master the most important vowel and consonant combinations in Modern Greek.
                             Essential after learning the alphabet.</span>
                         <span data-lang="de">Lerne die wichtigsten Vokal- und Konsonantenkombinationen im modernen
@@ -351,11 +351,11 @@
                                 class="text-xl font-normal">/i/</span></span>
                     </div>
                     <p class="text-xs text-marble-gray mb-2 font-medium uppercase tracking-wider">11 March 2026</p>
-                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2">
+                    <h3 class="text-2xl font-display font-semibold text-aegean-blue mb-2 blog-transatable">
                         <span data-lang="en">Why Does Greek Have So Many &#8220;i&#8221; Sounds?</span>
                         <span data-lang="de">Warum gibt es im Griechischen so viele &#8222;i&#8220;-Laute?</span>
                     </h3>
-                    <p class="text-base text-marble-gray mb-4">
+                    <p class="text-base text-marble-gray mb-4 blog-transatable">
                         <span data-lang="en">Six spellings, one sound. Discover the linguistic history of iotacism and
                             why Greek spelling is more logical than it first appears.</span>
                         <span data-lang="de">Sechs Schreibweisen, ein Laut. Entdecke die Geschichte des Itazismus im
@@ -424,6 +424,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Script to handle inline language toggles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function updateInlineTranslations(lang) {
+                document.querySelectorAll('.blog-transatable').forEach(container => {
+                    container.querySelectorAll('[data-lang]').forEach(span => {
+                        if (span.dataset.lang === lang) {
+                            span.style.display = 'inline';
+                        } else {
+                            span.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Initial load
+            const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'en';
+            updateInlineTranslations(currentLang);
+
+            // Listen for language changes
+            document.addEventListener('languageChanged', (e) => {
+                updateInlineTranslations(e.detail.language);
+            });
+        });
+    </script>
     <script src="main.js"></script>
 </body>
 

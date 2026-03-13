@@ -671,47 +671,32 @@ function getCategoryName(category, language) {
     return categoryNames[language][category] || category;
 }
 
-// Animated Counters — pure requestAnimationFrame, no anime.js dependency
+// Animated Counters
 function initializeCounters() {
     const counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
 
-    // easeOutQuart: fast start, smooth deceleration
-    function easeOutQuart(t) {
-        return 1 - Math.pow(1 - t, 4);
-    }
-
-    function animateCounter(el) {
-        const target = parseInt(el.dataset.count, 10);
-        const duration = 1800; // ms
-        let startTime = null;
-
-        function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const elapsed = timestamp - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            el.textContent = Math.round(easeOutQuart(progress) * target);
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                el.textContent = target; // ensure exact final value
-            }
-        }
-
-        requestAnimationFrame(step);
-    }
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target); // run only once
+                const el = entry.target;
+                const target = parseInt(el.dataset.count, 10);
+                
+                anime({
+                    targets: el,
+                    innerHTML: [0, target],
+                    easing: 'easeOutQuart',
+                    round: 1, // Round to nearest integer
+                    duration: 1800
+                });
+                
+                observer.unobserve(el); // run only once
             }
         });
     }, { threshold: 0.4 });
 
     counters.forEach(counter => {
-        counter.textContent = '0'; // reset to 0 on init
+        counter.innerHTML = '0'; // reset to 0 on init
         observer.observe(counter);
     });
 }
